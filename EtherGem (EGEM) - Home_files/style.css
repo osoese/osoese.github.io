@@ -1,0 +1,207 @@
+/* Font Embedding */
+@font-face {
+    font-family: 'Roboto';
+    src: url(../fonts/roboto-regular.ttf);
+}
+
+/* HTML Element Formatting */
+html{
+    scroll-behavior: smooth;
+}
+body {
+    height: 100%;
+    width: 100%;
+    min-width: 380px;
+    margin: 0px auto;
+    padding: 0px;
+    overflow: visible;
+    background-color: #fbfcfc;
+    font-family: Roboto, sans-serif;
+    color: #333;
+    font-size: 14px;
+    text-align: left;
+    letter-spacing: 0.05em;
+    -ms-text-size-adjust: none;
+    -webkit-text-size-adjust: none;
+}
+h2{
+    height: auto;
+    width: 80%;
+    position: relative;
+    left: 10%;
+    margin: 40px 0px 20px 0px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #333;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+    h2::before {
+        display: block;
+        content: " ";
+        margin-top: -50px;
+        height: 50px;
+        visibility: hidden;
+        pointer-events: none;
+    }
+img {
+    border: none;
+}
+    img.title {
+        padding-right: 10px;
+        content: '\A';
+        }
+p {
+    margin: 10px 0px 0px 0px;
+}
+
+/* Custom Element Formatting */
+header {
+    height: 50px;
+    width: 100%;
+    position: fixed;
+    top: 0px;
+    margin: 0px;
+    padding: 13px 20px;
+    overflow: hidden;
+    background-color: #303;
+    background-image: linear-gradient(top, #636 0%, #303 100%);
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #636), color-stop(1, #303));
+    background-image: -moz-linear-gradient(center top, #636 0%, #303 100%);
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    text-align: right;
+    color: #ccc;
+    z-index: 300;
+}
+intro {
+    height: 450px;
+    width: 100%;
+    position: absolute;
+    margin: 0px 0px 10px 0px;
+    padding-top: 0px;
+    overflow: hidden;
+    background-color: #636;
+    background-image: linear-gradient(top, #969 0%, #636 100%);
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #969), color-stop(1, #636));
+    background-image: -moz-linear-gradient(center top, #969 0%, #636 100%);
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    text-align: center;
+    color: #fff;
+    z-index: 100;
+}
+coin {
+    height: 400px;
+    width: 100%;
+    position: absolute;
+    top: 50px;
+    margin: 0px;
+    padding-top: 0px;
+    overflow: hidden;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    text-align: center;
+    color: #fff;
+    z-index: 100;
+}
+social {
+    height: auto;
+    width: 32px;
+    position: absolute;
+    top: 50px;
+    right: 0px;
+    padding: 20px;
+    overflow: hidden;
+    text-align: right;
+    z-index: 200;
+}
+main {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    top: 450px;
+    margin: 0px 0px 30px 0px;
+    overflow: hidden;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    text-align: center;
+    background-color: #fbfcfc;
+}
+footer {
+    height: 30px;
+    width: 100%;
+    position: fixed;
+    bottom: 0px;
+    margin: 0px;
+    padding: 5px 20px 5px 20px;
+    overflow: hidden;
+    background-color: #303;
+    background-image: linear-gradient(top, #303 0%, #636 100%);
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #303), color-stop(1, #636));
+    background-image: -moz-linear-gradient(center top, #303 0%, #636 100%);
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    text-align: center;
+    color: #ccc;
+    z-index: 300;
+}
+
+/* DIV ID Formatting */
+.top-arrow {
+    position: relative;
+    top: -50px;
+    left: 38%;
+    font-size:1.8em;
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+    cursor: pointer;
+}
+
+/* Formatting Classes */
+.clickable {
+    cursor: pointer;
+}
+.bold {
+    font-weight: bold;
+}
+.underline {
+    text-decoration: underline;
+}
+.italic {
+    font-style: italic;
+}
+.shadow {
+    text-shadow: 0px 2px 2px #000000;
+}
+.alignleft {
+    text-align: left;
+}
+.aligncenter {
+    text-align: center;
+}
+.alignright {
+    text-align: right;
+}
+.alignjustified {
+    text-align: justify;
+}
+.framepic {
+    border: 1px solid #000;
+}
+.content {
+    height: auto;
+    width: 80%;
+    position: relative;
+    left: 10%;
+    margin: 0px;
+    padding: 0px;
+    text-align: left;
+}
