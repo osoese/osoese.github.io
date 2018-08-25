@@ -1,6 +1,6 @@
 // Call coin info API
 const http = new XMLHttpRequest;
-const url = 'http://api.egm.io/api/v1/egem_prices';
+const url = 'http://api.egem.io/api/v1/egem_prices';
 
 http.open("GET", url);
 http.send();
