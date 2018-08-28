@@ -1,0 +1,85 @@
+/* Responsive Design */
+.mobileHeader{
+    display: none;
+    height: auto;
+    width: 100%;
+    position: fixed;
+    top: 0px;
+    margin: 0px;
+    padding: 10px;
+    overflow: hidden;
+    background-color: #999;
+    border-bottom: solid 2px #036;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    letter-spacing: 3px;
+    text-align: center;
+    z-index: 100;
+}
+.menu {
+    position: absolute;
+    top: 7px;
+    left: 10px;
+    padding: 5px;
+    background-color: #036;
+    border: solid 1px #fff;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.smallLogo{
+    color: #369;
+    font-family: 'Taco Box';
+    font-size: 2.5em;
+    text-shadow:
+            -1px -1px 0 #000,  
+            1px -1px 0 #000,
+            -1px 1px 0 #000,
+            1px 1px 0 #000;
+}
+.container {
+  display: flex;
+}
+.main {
+    width: 60%;
+    margin-right: 20px;
+}
+.sidebar {
+  width: 40%;
+}
+
+@media(max-width: 1024px) {
+    .container {
+        flex-direction: column;
+    }
+    .main {
+        width: 100%;
+    }
+    .sidebar {
+        width: 100%;
+    }
+}
+@media (max-width: 588px)
+  /*and (-webkit-min-device-pixel-ratio: 2)*/ {
+    #header {
+        display: none;
+    }
+    /*#content {
+        font-size: 1.4em;
+        line-height: 1.8em;
+    }*/
+    #navigation {
+        display: none;
+    }
+    #footer {
+        display: none;
+    }
+    .mobileHeader {
+        display: block;
+    }
+    .footer {
+        position: relative;
+        bottom: 0px;
+        text-align: center;
+    }
+}
