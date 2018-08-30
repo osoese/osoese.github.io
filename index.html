@@ -12,17 +12,18 @@
     <title>EtherGem (EGEM) - Home</title>
     <link rel="stylesheet" type="text/css" href="css/links.css" />
     <link rel="stylesheet" type="text/css" href="css/particles.css" />
+    <link rel="stylesheet" type="text/css" href="css/responsive.css" />
     <link rel="stylesheet" type="text/css" href="css/style.css" />
     <link rel="stylesheet" type="text/css" href="css/team.css" />
+    <link rel="stylesheet" type="text/css" href="css/ticker.css" />
     <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
     <script type="text/javascript" src="js/functions.js"></script>
     <script type="text/javascript" src="js/particles.min.js"></script>
     <script type="text/javascript" src="js/xhr.js"></script>
     <script type="text/javascript" src="js/particles-config.js" defer="defer"></script>
-    <script>document.onload = getCoinInfo()</script>
 </head>
 <body>
-    <a name="#top"></a>
+    <a name="#top" />
     <header>
         <a href="index.html"><img src="images/small-egem-logo.png" style="position: absolute; top: 0px; left: 15px;" alt="EtherGem Home" /></a>
         <a href="#about" class="nav">About</a>
@@ -33,22 +34,34 @@
         <a href="http://myegemwallet.com" target="_blank" class="nav">Wallet</a>
         <a href="http://explorer.egem.io" target="_blank" class="nav">Block Explorer</a>
         <a href="http://network.egem.io" target="_blank" class="nav">Network Stats</a>
+        <!-- Navigation for Responsive Mobile View -->
+        <hamburger-menu style="position: absolute; right:20px;">
+            <hamburger-line></hamburger-line>
+            <hamburger-line></hamburger-line>
+            <hamburger-line></hamburger-line>
+        </hamburger-menu>
     </header>
-    <coin class="coin-info">
-        <p>
-            Current Era: 0<br />
-            Total EGEM Supply:
-            <script>document.getElementById("TOTAL_EGEM_SUPPLY").innerHTML = obj.TOTAL_EGEM_SUPPLY</script><br />
-            Market Cap (USD): $
-            <script>document.getElementById("MARKET_CAP_USD").innerHTML = obj.MARKET_CAP_USD</script><br />
-            Average Exchange Price (USD): $
-            <script>document.getElementById("AVERAGEUSD").innerHTML = obj.AVERAGEUSD</script><br />
-            Block Reward: 9
-        </p>
-        <p>
-            (Block Reward Includes 1 Founder's Reward)
-        </p>
-    </coin>
+    <!-- Coin Stats Ticker -->
+    <ticker-wrapper>
+        <ticker>
+            <ticker-item>
+                <span class="stat-title">Current Era:</span> (0)
+            </ticker-item>
+            <ticker-item>
+                <span class="stat-title">Block Height:</span> 811245<span class="block-height" />
+            </ticker-item>
+            <ticker-item>
+                <span class="stat-title">Est. EGEM Supply:</span> 9,000,087<span class="total-egem-supply" />
+            </ticker-item>
+            <ticker-item>
+                <span class="stat-title">Market Cap (USD):</span> $244,836<span class="market-cap-usd" />
+            </ticker-item>
+            <ticker-item>
+                <span class="stat-title">Average Exchange Price (USD):</span> $0.02563453<span class="average-usd" />
+            </ticker-item>
+        </ticker>
+    </ticker-wrapper>
+    <!-- Social Media Links -->
     <social class="social-media">
         <a href="http://discord.egem.io" alt="Discord" target="_blank"><img src="images/social-icons/discord-32.png" alt="Discord" class="social-anim" /></a>
         <!--<img src="images/social-icons/facebook-32.png"  alt="Facebook" class="social-anim" />-->
@@ -56,12 +69,14 @@
         <a href="https://twitter.com/EtherGemCoin" alt="Twitter" target="_blank"><img src="images/social-icons/twitter-32.png" alt="Twitter" class="social-anim" /></a>
         <a href="https://www.youtube.com/channel/UCH4uEyf5roU6ydButXYdiBg" alt="YouTube" target="_blank"><img src="images/social-icons/youtube-32.png" alt="YouTube" class="social-anim" /></a>
     </social>
-    <div class="particles-wrapper">
+    <!-- Blockchain Animation - Disappears in Responsive Mobile View-->
+    <particles-wrapper>
         <div id="particles-js"></div>
-    </div>
+    </particles-wrapper>
     <intro>
         <img src="images/logo.png" style="display: none; margin-top: 20px;" class="egem-logo" alt="EtherGem Logo" />
     </intro>
+    <!-- Content Section - Topics are Comprised of <section> and <section-content> Tags -->
     <content>
         <section id="about">
             About EGEM
@@ -80,7 +95,7 @@
                 EtherGem, "EGEM," is first and foremost, a pure community coin with no pre-mine. True to its roots as a cryptocurrency, the Proof of Work mining
                 community will always be a part of EGEM's future and is the foundation of the EGEM launch. There is no ICO on EGEM and EGEM is its own primary
                 blockchain, not just a token or concept on another chain. The EtherGem blockchain is an Ethereum network, meaning it starts with the tested and proven
-                Ethereum (as in ETH) core technologies and builds from there. Technically EGEM is an Ethereum chain as described in the yellow paper, with EIP150,
+                Ethereum (as in ETH) core technologies and builds from there. Technically, EGEM is an Ethereum chain as described in the yellow paper, with EIP150,
                 EIP155, EIP158 applied from block 0. Block Rewards have 7 eras of reduction, including a dev reward enabled after block 5000. Developers and Community
                 Managers are bound by a continuity agreement to maintain the network, community, and coin. There is no cap to EGEM at the moment. A monetary cap will be
                 put in place when the community determines that the logical progression would be to cap the coin.
@@ -134,8 +149,8 @@
                 become available for trading.
             </p>
             <div class="aligncenter">
-                <a href="https://www.graviex.net/" target="_blank" alt="Graviex"><img src="images/exchanges/graviex.png" style="margin: 20px 10px 0px 10px;" alt="Graviex" /></a>
-                <a href="https://www.maplechange.com/" target="_blank" alt="Graviex"><img src="images/exchanges/maplechange.png" style="margin: 20px 10px 0px 10px;" alt="MapleChange" /></a>
+                <a href="https://www.graviex.net/" target="_blank" alt="Graviex"><img src="images/exchanges/graviex.png" style="vertical-align: top; margin: 20px 10px 0px 10px;" alt="Graviex" /></a>
+                <a href="https://www.maplechange.com/" target="_blank" alt="Graviex"><img src="images/exchanges/maplechange.png" style="vertical-align: top; margin: 20px 10px 70px 10px;" alt="MapleChange" /></a>
             </div>
         </section-content>
     </content>

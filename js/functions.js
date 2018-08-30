@@ -8,11 +8,18 @@ $(document).ready(function () {
     });
 });
 
-// Fade in coin info, logo, and social media links
+// Fade in logo, and social media links
 $(document).ready(function () {
-    $('.egem-logo').delay(500).fadeIn(1500);
-    $('.coin-info').delay(1000).fadeIn(1500);
-    $('.social-media').delay(1500).fadeIn(1500);
+    $('.egem-logo').delay(500).fadeIn(1000);
+    $('.social-media').delay(500).fadeIn(1000);
+});
+
+// Fade out coin info on scroll
+$(document).ready(function () {
+    $('.coin-info').delay(1000).fadeIn(1000);
+    $(window).scroll(function(){
+        $(".coin-info").css("opacity", 1 - $(window).scrollTop() / ($('.coin-info').height() / 1));
+    });
 });
 
 // Open new window

@@ -13,7 +13,7 @@ a {
 a.nav {
         position: relative;
         top: 12px;
-        padding-left: 20px;
+        margin: 10px;
         color: #e4ebfd;
         font-size: 1.2em;
         letter-spacing: 0.05em;

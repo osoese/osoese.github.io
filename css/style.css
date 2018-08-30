@@ -42,7 +42,7 @@ header {
     position: fixed;
     top: 0px;
     margin: 0px;
-    padding: 0px 20px;
+    padding: 0px 10px 0px 20px;
     overflow: hidden;
     background-color: #636;
     background-image: linear-gradient(top, #636 0%, #303 100%);
@@ -52,13 +52,13 @@ header {
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     text-align: right;
-    z-index: 400;
+    z-index: 500;
 }
 intro {
     height: 260px;
     width: 100%;
     position: absolute;
-    top: 50px;
+    top: 80px;
     left: 0px;
     margin: 0px auto;
     padding-top: 0px;
@@ -76,31 +76,12 @@ intro {
     color: #fff;
     z-index: 100;
 }
-coin {
-    display: none;
-    height: auto;
-    width: auto;
-    position: absolute;
-    top: 50px;
-    left: 0px;
-    margin: 20px;
-    padding: 0px 20px 20px 20px;
-    overflow: hidden;
-    border: 1px solid #e4ebfd;
-    border-radius: 5px;
-    box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    text-align: left;
-    color: #e4ebfd;
-    z-index: 200;
-}
 social {
     display: none;
     height: auto;
     width: 42px;
     position: absolute;
-    top: 70px;
+    top: 100px;
     right: 20px;
     margin: 0px;
     padding: 0px;
@@ -112,7 +93,7 @@ content {
     height: auto;
     width: 100%;
     position: relative;
-    top: 310px;
+    top: 340px;
     margin: 0px auto;
     overflow: auto;
     box-sizing: border-box;
@@ -120,7 +101,7 @@ content {
     -webkit-box-sizing: border-box;
     text-align: left;
 }
-section{
+section {
     height: auto;
     width: auto;
     position: relative;
@@ -132,6 +113,13 @@ section{
     font-weight: bold;
     text-align: center;
 }
+    section::before {
+        content: " ";
+        display: block;
+        height: 80px;
+        margin: -80px 0 0;
+        visibility: hidden; 
+    }
 arrow {
     height: auto;
     width: auto;
@@ -151,7 +139,7 @@ section-content {
     text-align: left;
 }
 footer {
-    height: 30px;
+    height: auto;
     width: 100%;
     position: fixed;
     bottom: 0px;
@@ -167,7 +155,7 @@ footer {
     -webkit-box-sizing: border-box;
     text-align: center;
     color: #e4ebfd;
-    z-index: 400;
+    z-index: 500;
 }
 
 /* Formatting Classes */
@@ -200,4 +188,7 @@ footer {
 }
 .framepic {
     border: 1px solid #000;
+}
+.upsize {
+    font-size: 1.2em;
 }
