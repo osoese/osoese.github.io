@@ -1,0 +1,78 @@
+﻿* {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+@-webkit-keyframes ticker {
+    0% {
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+        visibility: visible;
+    }
+    100% {
+        -webkit-transform: translate3d(-100%, 0, 0);
+        transform: translate3d(-100%, 0, 0);
+    }
+}
+
+@keyframes ticker {
+    0% {
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+        visibility: visible;
+    }
+    100% {
+        -webkit-transform: translate3d(-100%, 0, 0);
+        transform: translate3d(-100%, 0, 0);
+    }
+}
+
+ticker-wrapper {
+    position: fixed;
+    top: 50px;
+    width: 100%;
+    overflow: hidden;
+    height: 30px;
+    background-color: #333;
+    background-image: linear-gradient(top, #333 0%, #000 100%);
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #333), color-stop(1, #000));
+    background-image: -moz-linear-gradient(center top, #333 0%, #000 100%);
+    padding-left: 100%;
+    box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    -webkit-box-sizing: content-box;
+    z-index: 400;
+}
+
+ticker {
+    display: inline-block;
+    height: auto;
+    line-height: 1.0em;
+    white-space: nowrap;
+    padding-right: 100%;
+    box-sizing: content-box;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
+    -webkit-animation-name: ticker;
+    animation-name: ticker;
+    -webkit-animation-duration: 60s;
+    animation-duration: 60s;
+}
+
+ticker-item {
+    display: inline-block;
+    padding: 8px 50px 0px 50px;
+    font-size: 1.0em;
+    color: #e4ebfd;
+}
+
+.stat-title {
+    color: #000;
+    background-color: #e4ebfd;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-radius: 3px;
+}
