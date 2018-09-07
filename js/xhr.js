@@ -8,10 +8,10 @@ function getCoinInfo() {
     xhr.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
             var resp = JSON.parse(this.responseText);
-            document.getElementsByClassName('block-height').innerHTML = resp.BLOCK_HEIGHT;
-            document.getElementsByClassName('total-egem-supply').innerHTML = resp.TOTAL_EGEM_SUPPLY;
-            document.getElementsByClassName('market-cap-usd').innerHTML = parsedResponse.MARKET_CAP_USD;
-            document.getElementsByClassName('average-usd').innerHTML = parsedResponse.AVERAGEUSD;
+            document.getElementById('block-height').innerHTML = resp.BLOCK_HEIGHT;
+            document.getElementById('total-egem-supply').innerHTML = resp.TOTAL_EGEM_SUPPLY;
+            document.getElementById('market-cap-usd').innerHTML = parsedResponse.MARKET_CAP_USD;
+            document.getElementById('average-usd').innerHTML = parsedResponse.AVERAGEUSD;
         }
     };
     xhr.open("GET", url, true);
