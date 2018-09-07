@@ -11,6 +11,7 @@ function getCoinInfo() {
             var totalSupply = coinResponse.TOTAL_EGEM_SUPPLY.toFixed();
             var marketCap = coinResponse.MARKET_CAP_USD.toFixed(2);
             var averageUSD = coinResponse.AVERAGEUSD.toFixed(4);
+
             document.getElementById('block-height').innerHTML = blockHeight;
             document.getElementById('total-egem-supply').innerHTML = totalSupply;
             document.getElementById('market-cap-usd').innerHTML = marketCap;
