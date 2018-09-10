@@ -19,8 +19,11 @@ $(document).ready(function () {
     /*$('hamburger-menu').add('.mobile-nav').click(function () {
         $('.menu').slideToggle(500);
     });*/
-    $('hamburger-menu').add('.mobile-nav').on('click', function () {
+    /*$('hamburger-menu').add('.mobile-nav').on('click', function () {
         $('.nav-menu').slideToggle(500);
+    });*/
+    $('.hamburger-menu').add('.mobile-nav').on('click', function () {
+        $(this).parents('.nav-menu').toggleClass('is-open');
     });
 });
 
