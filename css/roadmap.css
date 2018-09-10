@@ -135,6 +135,11 @@ p {
             border-color: transparent #636 transparent transparent;
         }
 
+        /* Update border-radius to correct for all cards being on the right */
+        .container:nth-of-type(odd) .card {
+            border-radius: 00px 10px 10px 10px;
+        }
+
     /* Make sure all circles are at the same spot */
     .left::after, .right::after {
         left: 15px;
