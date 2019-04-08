@@ -8,11 +8,12 @@
     <meta name="author" content="EGEM Project" />
     <meta name="keywords" content="EtherGem EGEM Ethereum Bitcoin Litecoin Dash Ripple Sapphire master quarry nodes cryptocurrency cryptocurrencies coin token blockchain" />
     <meta name="description" content="EtherGem (EGEM) is a community-supported coin with no pre-mine. It is based off of Ethereum, but does not have many of the limitations
-    of Ethereum, such as limited transactional throughput. It also offers quarry nodes that pay dividends to node holders." />
+        of Ethereum, such as limited transactional throughput. It also offers quarry nodes that pay dividends to node holders." />
     <title>EtherGem (EGEM) - Home</title>
     <link rel="stylesheet" type="text/css" href="css/links.css" />
     <link rel="stylesheet" type="text/css" href="css/particles.css" />
     <link rel="stylesheet" type="text/css" href="css/responsive.css" />
+    <link rel="stylesheet" type="text/css" href="css/roadmap.css" />
     <link rel="stylesheet" type="text/css" href="css/style.css" />
     <link rel="stylesheet" type="text/css" href="css/team.css" />
     <link rel="stylesheet" type="text/css" href="css/ticker.css" />
@@ -23,62 +24,75 @@
     <script type="text/javascript" src="js/particles-config.js" defer="defer"></script>
 </head>
 <body>
-    <a name="#top" />
-    <header>
+    <nav>
+        <!-- Navigation for Desktop View -->
         <a href="index.html"><img src="images/small-egem-logo.png" style="position: absolute; top: 0px; left: 15px;" alt="EtherGem Home" /></a>
         <a href="#about" class="nav">About</a>
         <a href="#roadmap" class="nav">Roadmap</a>
         <a href="#nodes" class="nav">Master Nodes</a>
         <a href="#exchanges" class="nav">Exchanges</a>
         <!--<a href="#team" class="nav">Team</a>-->
-        <a href="http://myegemwallet.com" target="_blank" class="nav">Wallet</a>
-        <a href="http://explorer.egem.io" target="_blank" class="nav">Block Explorer</a>
-        <a href="http://network.egem.io" target="_blank" class="nav">Network Stats</a>
+        <a href="https://myegemwallet.com" target="_blank" class="nav">Wallet</a>
+        <a href="https://explorer.egem.io" target="_blank" class="nav">Block Explorer</a>
+        <a href="https://network.egem.io" target="_blank" class="nav">Network Stats</a>
         <!-- Navigation for Responsive Mobile View -->
-        <hamburger-menu style="position: absolute; right:20px;">
+        <hamburger-menu style="position: absolute; right: 20px;">
             <hamburger-line></hamburger-line>
             <hamburger-line></hamburger-line>
             <hamburger-line></hamburger-line>
         </hamburger-menu>
-    </header>
+        <ul class="nav-menu">
+            <li class="menu-item"><a href="#about" class="mobile-nav">About</a></li>
+            <li class="menu-item"><a href="#roadmap" class="mobile-nav">Roadmap</a></li>
+            <li class="menu-item"><a href="#nodes" class="mobile-nav">Master Nodes</a></li>
+            <li class="menu-item"><a href="#exchanges" class="mobile-nav">Exchanges</a></li>
+            <!--<li class="menu-item"><a href="#team" class="mobile-nav">Team</a></li>-->
+            <li class="menu-item"><a href="http://myegemwallet.com" target="_blank" class="mobile-nav">Wallet</a></li>
+            <li class="menu-item"><a href="http://explorer.egem.io" target="_blank" class="mobile-nav">Block Explorer</a></li>
+            <li class="menu-item"><a href="http://network.egem.io" target="_blank" class="mobile-nav">Network Stats</a></li>
+        </ul>
+    </nav>
     <!-- Coin Stats Ticker -->
+    <script type="text/javascript">getCoinInfo();</script>
     <ticker-wrapper>
         <ticker>
             <ticker-item>
-                <span class="stat-title">Current Era:</span> (0)
+                <span class="stat-title">Current Era:</span>0
             </ticker-item>
             <ticker-item>
-                <span class="stat-title">Block Height:</span> 811245<span class="block-height" />
+                <span class="stat-title">Block Height:</span><span id="block-height"></span>
             </ticker-item>
             <ticker-item>
-                <span class="stat-title">Est. EGEM Supply:</span> 9,000,087<span class="total-egem-supply" />
+                <span class="stat-title">Est. EGEM Supply:</span><span id="total-egem-supply"></span>
             </ticker-item>
             <ticker-item>
-                <span class="stat-title">Market Cap (USD):</span> $244,836<span class="market-cap-usd" />
+                <span class="stat-title">Market Cap (USD):</span>$<span id="market-cap-usd"></span>
             </ticker-item>
             <ticker-item>
-                <span class="stat-title">Average Exchange Price (USD):</span> $0.02563453<span class="average-usd" />
+                <span class="stat-title">Average Exchange Price (USD):</span>$<span id="average-usd"></span>
             </ticker-item>
         </ticker>
     </ticker-wrapper>
-    <!-- Social Media Links -->
-    <social class="social-media">
-        <a href="http://discord.egem.io" alt="Discord" target="_blank"><img src="images/social-icons/discord-32.png" alt="Discord" class="social-anim" /></a>
-        <!--<img src="images/social-icons/facebook-32.png"  alt="Facebook" class="social-anim" />-->
-        <a href="https://t.me/EGEM_Team" alt="Telegram" target="_blank"><img src="images/social-icons/telegram-32.png" alt="Telegram" class="social-anim" /></a>
-        <a href="https://twitter.com/EtherGemCoin" alt="Twitter" target="_blank"><img src="images/social-icons/twitter-32.png" alt="Twitter" class="social-anim" /></a>
-        <a href="https://www.youtube.com/channel/UCH4uEyf5roU6ydButXYdiBg" alt="YouTube" target="_blank"><img src="images/social-icons/youtube-32.png" alt="YouTube" class="social-anim" /></a>
-    </social>
-    <!-- Blockchain Animation - Disappears in Responsive Mobile View-->
-    <particles-wrapper>
-        <div id="particles-js"></div>
-    </particles-wrapper>
-    <intro>
-        <img src="images/logo.png" style="display: none; margin-top: 20px;" class="egem-logo" alt="EtherGem Logo" />
-    </intro>
-    <!-- Content Section - Topics are Comprised of <section> and <section-content> Tags -->
     <content>
-        <section id="about">
+        <a name="#top"></a>
+        <intro>
+            <!-- Social Media Links -->
+            <social class="social-media">
+                <a href="http://discord.egem.io" alt="Discord" target="_blank"><img src="images/social-icons/discord-32.png" alt="Discord" class="social-anim" /></a>
+                <!--<img src="images/social-icons/facebook-32.png"  alt="Facebook" class="social-anim" />-->
+                <a href="https://t.me/EGEM_Team" alt="Telegram" target="_blank"><img src="images/social-icons/telegram-32.png" alt="Telegram" class="social-anim" /></a>
+                <a href="https://twitter.com/EtherGemCoin" alt="Twitter" target="_blank"><img src="images/social-icons/twitter-32.png" alt="Twitter" class="social-anim" /></a>
+                <a href="https://www.youtube.com/channel/UCH4uEyf5roU6ydButXYdiBg" alt="YouTube" target="_blank"><img src="images/social-icons/youtube-32.png" alt="YouTube" class="social-anim" /></a>
+            </social>
+            <!-- Blockchain Animation - Disappears in Responsive Mobile View-->
+            <particles-wrapper>
+                <div id="particles-js"></div>
+            </particles-wrapper>
+            <img src="images/logo.png" style="display: none; margin-top: 20px;" class="egem-logo" alt="EtherGem Logo" />
+        </intro>
+        <!-- Main Section - Topics are Comprised of <section> and <section-content> Tags -->
+        <section>
+            <a class="section-anchor" name="about"></a>
             About EGEM
             <arrow class="scrollTop">
                 &#9650;
@@ -106,19 +120,71 @@
                 while continuing to rely on a solid foundation. The sidechain and token will be available shortly after the mainnet release.
             </p>
             <p>
-                View the EtherGem <a href="https://egem.io/roadmap.html" target="_new">white paper</a>.
+                View the EtherGem <a href="whitepaper.html" target="_blank">white paper</a>.
             </p>
         </section-content>
-        <section id="roadmap">
+        <section>
+            <a class="section-anchor" name="roadmap"></a>
             Project Roadmap
             <arrow class="scrollTop">
                 &#9650;
             </arrow>
         </section>
         <section-content class="aligncenter">
-            <img src="images/roadmap.png" style="height: auto; width: 100%" />
+            <div class="timeline">
+                <div class="container left">
+                    <div class="card grey-complete">
+                        <h2>Genesis block</h2>
+                        <p>
+                            Stable EGEM blockchain with 13 second average block time, web wallets, and basic explorer (Initial Launch)
+                        </p>
+                    </div>
+                </div>
+                <div class="container right">
+                    <div class="card grey-complete">
+                        <h2>Desktop wallet Opal alpha release</h2>
+                        <p>
+                            A wallet we can grow with to add the upcoming integrated subchain and works on all platforms
+                        </p>
+                    </div>
+                </div>
+                <div class="container left">
+                    <div class="card grey-complete">
+                        <h2>Quarry nodes</h2>
+                        <p>
+                            Master (Quarry) nodes implemented, community bots for node management (Discord), game bots (Discord), and automated payments for node holders
+                        </p>
+                    </div>
+                </div>
+                <div class="container right">
+                    <div class="card">
+                        <h2>Explorer and wallet enhancements</h2>
+                        <p>
+                            Upgraded explorer, mobile wallets and Opal wallet beta release
+                        </p>
+                    </div>
+                </div>
+                <div class="container left">
+                    <div class="card">
+                        <h2>Sapphire</h2>
+                        <p>
+                            Sapphire is an integrated sub-chain that interweaves the mainchain on EGEM and includes a DEX. It is dual-mineable with EGEM and companies can 
+                            ICO on the multicurrency wallet and DEX - paying in EGEM, with proceeds enhancing the quarry node payments
+                        </p>
+                    </div>
+                </div>
+                <div class="container right">
+                    <div class="card">
+                        <h2>Product integration and growth</h2>
+                        <p>
+                            Fiat to crypto conversion capabilities, ATM development and implementation, integration of both with DEX
+                        </p>
+                    </div>
+                </div>
+            </div>
         </section-content>
-        <section id="nodes">
+        <section>
+            <a class="section-anchor" name="nodes"></a>
             Master Nodes
             <arrow class="scrollTop">
                 &#9650;
@@ -126,8 +192,8 @@
         </section>
         <section-content>
             <p>
-                Interested in earning a return on your EGEM holdings? EGEM quarry nodes allow node operators to receive EtherGem in exchange for running a node. There are
-                currently two tiers of nodes:
+                Interested in earning a return on your EGEM holdings? EGEM quarry nodes (a form of master node) allow node operators to receive EtherGem in exchange for
+                running a node. There are currently two tiers of nodes:
                 <ul>
                     <li />Tier 1 - 10000 EGEM Collateral
                     <li />Tier 2 - Tier 1 Node &amp; 30000 EGEM Collateral
@@ -136,8 +202,16 @@
                 their holdings as they acquire more EGEM. Click <a href="https://github.com/TeamEGEM/EGEM-node-install" alt="Node Setup Instructions">here</a> to access the
                 GitHub code for setting up a node.
             </p>
+            <p>
+                EtherGem has a full-service Discord bot that allows you to manage your node(s). You can perform such actions as: registering a node, changing the IP address 
+                of a node, turning automatic payments on/off, checking your wallet balance, and much more!
+            </p>
+            <div class="aligncenter">
+                <img src="images/egem-bot-qn.png" style="max-width: 590px;" class="screenshot" alt="EGEM Quarry Node Bot" />
+            </div>
         </section-content>
-        <section id="exchanges">
+        <section>
+            <a class="section-anchor" name="exchanges"></a>
             Exchanges
             <arrow class="scrollTop">
                 &#9650;
@@ -152,13 +226,14 @@
                 <a href="https://www.graviex.net/" target="_blank" alt="Graviex"><img src="images/exchanges/graviex.png" style="vertical-align: top; margin: 20px 10px 0px 10px;" alt="Graviex" /></a>
                 <a href="https://www.maplechange.com/" target="_blank" alt="Graviex"><img src="images/exchanges/maplechange.png" style="vertical-align: top; margin: 20px 10px 70px 10px;" alt="MapleChange" /></a>
             </div>
-        </section-content>
+        </section-content>-->
     </content>
     <footer>
-        &copy;2018 The EtherGem Project, All Rights Reserved.
+        &copy;2018 EtherGem, All Rights Reserved.
     </footer>
 </body>
 </html>
+
 <!--
         <h2 id="team">
             Team
@@ -183,5 +258,4 @@
                 </div>
             </team-member>
         </div>
-    </content>
 -->

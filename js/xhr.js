@@ -1,31 +1,31 @@
-// ***********************************
 // Call REST API to retrieve coin info
-// ***********************************
-/*function getCoinInfo() {
+
+function getCoinInfo() {
     var xhr = new XMLHttpRequest();
-    var url = 'http://api.egem.io/api/v1/egem_prices';
+    var url = 'https://api.egem.io/api/v1/egem_prices';
 
     xhr.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-            var coinArr = JSON.parse(this.responseText);
-            parsedResponse(coinArr);
+            var coinResponse = JSON.parse(this.responseText);
+            var blockHeight = parseFloat(coinResponse.BLOCK_HEIGHT).toFixed();
+            var totalSupply = parseFloat(coinResponse.TOTAL_EGEM_SUPPLY).toFixed();
+            var marketCap = parseFloat(coinResponse.MARKET_CAP_USD).toFixed(2);
+            var averageUSD = parseFloat(coinResponse.AVERAGEUSD).toFixed(4);
+
+            document.getElementById('block-height').innerHTML = blockHeight;
+            document.getElementById('total-egem-supply').innerHTML = totalSupply;
+            document.getElementById('market-cap-usd').innerHTML = marketCap;
+            document.getElementById('average-usd').innerHTML = averageUSD;
         }
     };
     xhr.open("GET", url, true);
     xhr.send();
 
-    function parsedResponse(arr) {
-        var out = "";
-        var i;
-        for (i = 0; i < arr.length; i++) {
-            out += 'arr[i]' + arr[i].display;
-        }
-        document.getElementById("id01").innerHTML = out;
-    }
-    /*try {
+    try {
         // Compliant browsers
         xhr = new XMLHttpRequest();
     }
+
     catch (e) {
         try {
             // IE7+
@@ -33,21 +33,7 @@
         }
         catch (e) {
             // AJAX is not supported
-            console.log("AJAX is not supported. Please upgrade your browser!");
-        }
-    }
-    */
-$(document).ready(function () {
-    // Get coin info
-    $.ajax({
-        url: 'http://api.egem.io',
-        dataType: 'jsonp',
-        crossDomain: true,
-        type: 'GET',
-        data: '/api/v1/egem_prices'}).then(function(coinData) {
-            $('.block-height').append(coinData.BLOCK_HEIGHT);
-            $('.total-egem-supply').append(coinData.TOTAL_EGEM_SUPPLY);
-            $('.market-cap-usd').append(coinData.MARKET_CAP_USD);
-            $('.average-usd').append(coinData.AVERAGEUSD);
-        });
-    });
+            alert('AJAX is not supported. Please upgrade your browser!');
+        };
+    };
+};
