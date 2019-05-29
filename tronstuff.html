@@ -1,31 +1,9 @@
 
-<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
-        async defer>
-    </script>
-  <script>
-  var onloadCallback = function() {
-    alert("grecaptcha is ready!");
-  };
-  /***
-  grecaptcha.ready(function() {
-      grecaptcha.execute('reCAPTCHA_site_key', {action: 'homepage'}).then(function(token) {
-         alert("well you did solve that captcha correctly so lets see if you can get a reward...")
-      });
-  });
-  ***/
-  </script>
-
-  here I am
-  <html>
-    <head>
-      <title>reCAPTCHA demo: Simple page</title>
-       <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-    </head>
-    <body>
-      <form action="?" method="POST">
-        <div class="g-recaptcha" data-sitekey="6LfFtaMUAAAAAD7ia7a2J6inDcNOyB2pCROt4gH3"></div>
-        <br/>
-        <input type="submit" value="Submit">
-      </form>
-    </body>
-  </html>
+<script src="https://www.google.com/recaptcha/api.js?render=6LfFtaMUAAAAAD7ia7a2J6inDcNOyB2pCROt4gH3"></script>
+ <script>
+ grecaptcha.ready(function() {
+     grecaptcha.execute('reCAPTCHA_site_key', {action: 'homepage'}).then(function(token) {
+        ...
+     });
+ });
+ </script>
