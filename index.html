@@ -3,8 +3,8 @@
     <div class="cardo top_card">
       <h1>Hello</h1>This is a demo for a no-js, css-only perspective card animation
     </div>
-    <div class="cardo top_card"></div>
-    <div class="cardo top_card"></div>
+    <div class="cardo middle_card"></div>
+    <div class="cardo bottom_card"></div>
   </div>
 </div>
 <header class="header-banner">
@@ -823,4 +823,37 @@
   .top_card {
     background-image: linear-gradient(-70deg, #09c, #5f9);
   }
+
+  .middle_card {
+    background-image: linear-gradient(-70deg, #505, #f68);
+    color: #000;
+    text-shadow: -2px -2px 3px rgba(255, 255, 255, 0.7);
+  }
+
+  .bottom_card {
+    background-image: linear-gradient(-70deg, #03a, #c6f);
+
+    font-size: 1.3em;
+    text-shadow: 1px 3px 3px rgba(255, 255, 255, 0.7);
+  }
+
+  /* ALL CARD HOVER */
+  .cardo:hover {
+    opacity: 0.7;
+    background-image: linear-gradient(-70deg, #627, #9a9);
+    color: #223;
+  }
+
+  .top_card:hover {
+    background-image: linear-gradient(-70deg, #90c, #5f9);
+  }
+
+  .middle_card:hover {
+    background-image: linear-gradient(-70deg, #90c, #5f9);
+  }
+
+  .bottom_card:hover {
+    background-image: linear-gradient(-70deg, #90c, #5f9);
+  }
+
 </style>
