@@ -8,7 +8,7 @@
       <img src="./img/that.png" height="100" />
     </div>
     <div class="cardo bottom_card">
-      OSOeSE Fun Site
+      <h3>OSOeSE Fun Site</h3>
     </div>
   </div>
 </div>
@@ -332,7 +332,7 @@
     color:#ffffff;
     font-family:Helvetica, serif;
     font-weight:100;
-    background-image:url("//grapesjs.com/img/bg-gr-v.png"), url("//grapesjs.com/img/work-desk.jpg");
+    background-image:url("http://grapesjs.com/img/bg-gr-v.png"), url("http://grapesjs.com/img/work-desk.jpg");
     background-attachment:scroll, scroll;
     background-position:left top, center center;
     background-repeat:repeat-y, no-repeat;
@@ -761,14 +761,14 @@
   #iiqk4i{
     flex-basis:99%;
     min-height:250px;
-    opacity:0.28;
-    background-color:#fafafa;
+    opacity:0.58;
+    background-color:#e6d3e8;
     border-radius:32px 32px 0 0;
     --border: double 5px #9710ec transparent ;
     border:5px inset #9710ec;
 
-    box-shadow: inset -10px -10px 80px 1px rgba(0, 0, 0, 0.3),
-    10px 20px 50px 10px rgba(0, 0, 0, 0.5);
+    box-shadow: inset -10px -10px 80px 1px rgba(0, 0, 0, 1),
+    10px 20px 50px 10px rgba(0, 0, 0, 0.8);
   }
   @media (max-width: 768px){
     .foot-form-cont{
@@ -786,17 +786,17 @@
       display:none;
     }
   }
-
+  /* https://codepen.io/laczi/pen/BajVENa source for below card anim */
   .cardo {
     border-radius: 25px;
     border: double 5px transparent;
     /*Set both inset and outset box shadow using CSS, separated by , */
-    box-shadow: inset -10px -10px 80px 1px rgba(0, 0, 0, 0.3),
-      10px 20px 50px 10px rgba(0, 0, 0, 0.5);
+    box-shadow: inset -10px -10px 80px 1px rgba(0, 0, 0, 1),
+      10px 20px 50px 10px rgba(0, 0, 0, 1);
   }
   .cardo {
     color: #555;
-    text-shadow: 1px 3px 3px rgba(255, 255, 255, 0.7);
+    text-shadow: 1px 3px 3px rgba(255, 255, 255, 1);
     width: 350px;
     height: 230px;
     float: left;
@@ -810,7 +810,7 @@
 
     /* Animation attributes */
     animation-name: turn-animation; /* any name what you give */
-    animation-duration: 6000ms; /* length of one animation cycle*/
+    animation-duration: 12000ms; /* length of one animation cycle*/
     animation-iteration-count: infinite; /* repeats forever */
     transition-timing-function: cubic-bezier(0.42, 0, 0.58, 1); /* ease-in-out */
   }
@@ -821,7 +821,7 @@
     }
     /* Experiment with these numbers at 50% -> */
     50% {
-      transform: rotate3d(0, 1, -0.2, 45deg);
+      transform: rotate3d(0, 1, -0.2, 55deg);
     }
     100% {
       transform: rotate3d(0, 1, 0, 10deg);
@@ -832,15 +832,13 @@
   .top_card {
     background-image: linear-gradient(-70deg, #09c, #5f9);
   }
-
   .middle_card {
     background-image: linear-gradient(-70deg, #505, #f68);
     color: #000;
     text-shadow: -2px -2px 3px rgba(255, 255, 255, 0.7);
   }
-
   .bottom_card {
-    background-image: linear-gradient(-70deg, #03a, #c6f);
+    background-image: linear-gradient(-90deg, #03a, #c6f);
 
     font-size: 1.3em;
     text-shadow: 1px 3px 3px rgba(255, 255, 255, 0.7);
@@ -848,19 +846,16 @@
 
   /* ALL CARD HOVER */
   .cardo:hover {
-    opacity: 0.7;
+    opacity: 0.9;
     background-image: linear-gradient(-70deg, #627, #9a9);
     color: #223;
   }
-
   .top_card:hover {
     background-image: linear-gradient(-70deg, #90c, #5f9);
   }
-
   .middle_card:hover {
     background-image: linear-gradient(-70deg, #90c, #5f9);
   }
-
   .bottom_card:hover {
     background-image: linear-gradient(-70deg, #90c, #5f9);
   }
