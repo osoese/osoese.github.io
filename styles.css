@@ -31,6 +31,7 @@
 .pattern .face.face2
 {
   height: 60vh;
+  z-index: -1;
   transform-origin: top;
   transform: rotateX(65deg);
 }
@@ -48,7 +49,34 @@
 {
   content: '';
   position:absolute;
+  top:70;
+  left:40;
+  z-index: :10;
+}
+.patternThree
+{
+  content: '';
+  position:absolute;
   top:30;
-  left:30;
-  width:
+  left:150;
+  z-index: :20;
+}
+#shadow {
+  --border: 1px solid blue;
+  position: relative;
+  font-size: 200px;
+  font-weight: bold;
+  text-align: center;
+  perspective: 200px;
+  perspective-origin: 70% 200%;
+  display: inline-block;
+}
+#shadow::after {
+  content: '<>>>>'
+  outline: 1px solid red;
+  position: absolute;
+  top: 20; right: 20; bottom: 20; left: 20;
+  transform: scaleY(0.3) rotateX(-15deg);
+  transform-origin: 70% 200%;
+  opacity: .7;
 }
