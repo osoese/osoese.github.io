@@ -111,12 +111,19 @@
   opacity: .7;
 }
 
+.control_panel{
+    padding: 10px;
+}
+.control_panel h2{
+  font-size:20px;
+  font-weight: :bold;
+}
 
 .scene_container {
   position: absolute;
   left: 600px;
   top: 100px;
-  height: 500px;
+  height: 600px;
   width: 500px;
   background-color: #FFFFFF;
 }
