@@ -1,0 +1,213 @@
+<html>
+<script>
+  let player = `x`;
+  let machine = `o`
+  let turn = `player`;
+  let gameStarted = false;
+  let board = [0,0,0,0,0,0,0,0,0];
+  let win = [];
+  function getRndInteger(min, max) {
+    return Math.floor(Math.random() * (max - min) ) + min;
+  }
+  function inArray(needle, haystack, matchAll = false) {
+    if (matchAll) {
+        return needle.every(i => haystack.includes(i));
+    } else {
+        return needle.some(i => haystack.includes(i));
+    }
+  }
+  const startGame = () => {
+    gameStarted = true;
+  }
+  const isWinner = (p) => {
+    console.log(`p = ${p}`)
+    if(board.filter(s => s == p).length > 2){
+      console.log(`three was reached`)
+      var keys = [];
+      var filtered = board.filter((e, i) => {
+        if (e === p) {
+          keys.push(i);
+        }
+      });
+      let result;
+      result = inArray([0,1,2], keys, true);
+      if(result){
+        console.log(`keys ${keys} includes [0,1,2] ${result}`);
+        win = [0,1,2];
+        return true;
+      }
+      result = inArray([3,4,5], keys, true);
+      if(result){
+        console.log(`keys ${keys} includes [3,4,5] ${result}`);
+        win = [3,4,5];
+        return true;
+      }
+      result = inArray([6,7,8], keys, true);
+      if(result){
+        console.log(`keys ${keys} includes [6,7,8] ${result}`);
+        win = [6,7,8];
+        return true;
+      }
+      result = inArray([0,4,8], keys, true);
+      if(result){
+        console.log(`keys ${keys} includes [0,4,8] ${result}`);
+        win = [0,4,8];
+        return true;
+      }
+      result = inArray([6,4,2], keys, true);
+      if(result){
+        console.log(`keys ${keys} includes [6,4,2] ${result}`);
+        win = [6,4,2];
+        return true;
+      }
+      result = inArray([0,3,6], keys, true);
+      if(result){
+        console.log(`keys ${keys} includes [0,3,6] ${result}`);
+        win = [0,3,6];
+        return true;
+      }
+      result = inArray([1,4,7], keys, true);
+      if(result){
+        console.log(`keys ${keys} includes [1,4,7] ${result}`);
+        win = [1,4,7];
+        return true;
+      }
+      result = inArray([2,5,8], keys, true);
+      if(result){
+        console.log(`keys ${keys} includes [2,5,8] ${result}`);
+        win = [2,5,8];
+        return true;
+      }
+      return false;
+    }else{
+      return false;
+    }
+  }
+  const machineTurn = async () => {
+    let avails = [];
+    await board.map((x,i) => {
+      if(x == 0){
+        avails.push(i);
+      }
+    })
+    if(avails.length > 0){
+      let randIdx = getRndInteger(0,parseInt(1 * avails.length - 1))
+      board[avails[randIdx]] = 2;
+      document.getElementById(`${avails[randIdx]}`).innerHTML = machine.toUpperCase();
+    }else{
+      alert(`game done`)
+    }
+
+    //alert(`rand is ${randIdx} ${JSON.stringify(board)}`)
+  }
+  const ticTacToe = async (ele) => {
+    if(gameStarted == false){
+      gameStarted = true;
+    }
+    if(ele.innerHTML == ""){
+      let chosen = parseInt(ele.id);
+      board[chosen] = 1;
+      //alert(JSON.stringify(board))
+      ele.innerHTML = player.toUpperCase()
+    }
+    let checkWin = await isWinner(1);
+    if(checkWin){
+      await win.forEach( xx => {
+        document.getElementById(xx).style.backgroundColor = `#AA0000`;
+      })
+      alert(`congratulations you win!!!!!`)
+    }
+    machineTurn()
+  }
+  const choose = (ele) => {
+    if(gameStarted == false){
+      player = ele.innerHTML
+      if(ele.innerHTML == `x`){
+        machine = `o`;
+        console.log(`machine is playing ${machine}`)
+      }else{
+        machine = `x`;
+        console.log(`machine is playing ${machine}`)
+      }
+    }else{
+      console.log(`you cannot change positions during game`)
+    }
+  }
+</script>
+
+<style>
+.card {
+  background-color:#FFFFFF;
+  border:3px dashed blue;
+  width:430px;
+  height:430px;
+  padding:30px;
+}
+.row-z {
+  display: flex;
+  flex-direction: row;
+}
+.n-sq {
+  margin:10px;
+  width:100px;
+  height:100px;
+  border-radius:10px;
+  background:#e0e0e0;
+  box-shadow:20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
+  font-size:80px;
+  text-align:center;
+  padding:10px;
+}
+.buttonStart {
+  width:100px;
+  margin:5px;
+  padding: 10px;
+  text-align: center;
+  font-weight:'bold';
+  font-size: 30px;
+  color:#FFFFFF;
+  background-color:red;
+  border-radius:10px;
+  border:1px solid black;
+  cursor:pointer;
+}
+.chooser {
+  margin:10px;
+  padding:10px;
+  border:1px solid black;
+  cursor:pointer;
+}
+.optHouse {
+  margin:10px;
+  padding:5px;
+}
+</style>
+
+<div class="card">
+  <div class="row-z">
+    <div id="0" class="n-sq" onClick="ticTacToe(this)"></div>
+    <div id="1" class="n-sq" onClick="ticTacToe(this)"></div>
+    <div id="2" class="n-sq" onClick="ticTacToe(this)"></div>
+  </div>
+
+  <div class="row-z">
+    <div id="3" class="n-sq" onClick="ticTacToe(this)"></div>
+    <div id="4" class="n-sq" onClick="ticTacToe(this)"></div>
+    <div id="5" class="n-sq" onClick="ticTacToe(this)"></div>
+  </div>
+
+  <div class="row-z">
+    <div id="6" class="n-sq" onClick="ticTacToe(this)"></div>
+    <div id="7" class="n-sq" onClick="ticTacToe(this)"></div>
+    <div id="8" class="n-sq" onClick="ticTacToe(this)"></div>
+  </div>
+</div>
+
+<div class="optHouse">
+  <span class="chooser" onClick="choose(this)">x</span><span class="chooser" onClick="choose(this)">o</span>
+</div>
+<div class="optHouse">
+  <div class="buttonStart" onClick="startGame()">start</div>
+</div>
+
+</html>
