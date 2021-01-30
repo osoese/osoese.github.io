@@ -113,9 +113,19 @@
       let randIdx = getRndInteger(0,parseInt(1 * avails.length - 1))
       board[avails[randIdx]] = 2;
       document.getElementById(`${avails[randIdx]}`).innerHTML = machine.toUpperCase();
+      let checkWin = await isWinner(2);
+      if(checkWin){
+        await win.forEach( xx => {
+          document.getElementById(xx).style.backgroundColor = `#AA0000`;
+        })
+        alert(`MACHINE HAS WON you suck!!!!!`)
+        endGame();
+        return;
+      }
     }else{
       alert(`game done`)
       endGame();
+      return;
     }
 
     //alert(`rand is ${randIdx} ${JSON.stringify(board)}`)
