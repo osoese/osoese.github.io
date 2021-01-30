@@ -18,6 +18,25 @@
   }
   const startGame = () => {
     gameStarted = true;
+    console.log(`game has started`)
+    document.getElementById(`buttonStart`).innerHTML = `game on`;
+    document.getElementById(`buttonStart`).style.backgroundColor = `green`;
+  }
+  const endGame = () => {
+    gameStarted = false;
+    document.getElementById(`buttonStart`).style.backgroundColor = `orange`;
+    document.getElementById(`buttonStart`).innerHTML = `PLAY AGAIN`;
+    document.getElementById(`buttonStart`).onclick = resetGame;
+  }
+  const resetGame = () => {
+    board = [0,0,0,0,0,0,0,0,0];
+    board.map((e,i)=>{
+      document.getElementById(`${i}`).innerHTML = ``;
+      document.getElementById(`${i}`).style.backgroundColor = `#FFFFFF`;
+    })
+    document.getElementById(`buttonStart`).innerHTML = `start`
+    document.getElementById(`buttonStart`).style.backgroundColor = `red`;
+    document.getElementById(`buttonStart`).onclick = startGame;
   }
   const isWinner = (p) => {
     console.log(`p = ${p}`)
@@ -96,13 +115,14 @@
       document.getElementById(`${avails[randIdx]}`).innerHTML = machine.toUpperCase();
     }else{
       alert(`game done`)
+      endGame();
     }
 
     //alert(`rand is ${randIdx} ${JSON.stringify(board)}`)
   }
   const ticTacToe = async (ele) => {
     if(gameStarted == false){
-      gameStarted = true;
+      startGame();
     }
     if(ele.innerHTML == ""){
       let chosen = parseInt(ele.id);
@@ -116,17 +136,23 @@
         document.getElementById(xx).style.backgroundColor = `#AA0000`;
       })
       alert(`congratulations you win!!!!!`)
+      endGame();
+      return;
     }
-    machineTurn()
+    machineTurn();
+    return;
   }
   const choose = (ele) => {
     if(gameStarted == false){
-      player = ele.innerHTML
+      player = ele.innerHTML;
+      ele.style.backgroundColor = `yellow`;
       if(ele.innerHTML == `x`){
         machine = `o`;
+        document.getElementById('choose_o').style.backgroundColor = `#FFFFFF`;
         console.log(`machine is playing ${machine}`)
       }else{
         machine = `x`;
+        document.getElementById('choose_x').style.backgroundColor = `#FFFFFF`;
         console.log(`machine is playing ${machine}`)
       }
     }else{
@@ -164,7 +190,7 @@
   padding: 10px;
   text-align: center;
   font-weight:'bold';
-  font-size: 30px;
+  font-size: 20px;
   color:#FFFFFF;
   background-color:red;
   border-radius:10px;
@@ -175,11 +201,14 @@
   margin:10px;
   padding:10px;
   border:1px solid black;
+  border-radius:5px;
   cursor:pointer;
 }
 .optHouse {
-  margin:10px;
-  padding:5px;
+  margin:20px;
+  padding:10px;
+  width:400px;
+  text-align: right;
 }
 </style>
 
@@ -204,10 +233,13 @@
 </div>
 
 <div class="optHouse">
-  <span class="chooser" onClick="choose(this)">x</span><span class="chooser" onClick="choose(this)">o</span>
-</div>
-<div class="optHouse">
-  <div class="buttonStart" onClick="startGame()">start</div>
+  <span id="choose_x" class="chooser" onClick="choose(this)">x</span>
+  <span id="choose_o" class="chooser" onClick="choose(this)">o</span>
+  <span id="buttonStart" class="buttonStart" onClick="startGame()">start</span>
 </div>
 
 </html>
+
+<script>
+  document.getElementById('choose_x').style.backgroundColor = `yellow`;
+</script>
