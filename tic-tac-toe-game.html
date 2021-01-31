@@ -1,5 +1,7 @@
 <html>
 <script>
+  let score = 0;
+  let winPoints = [1000,10000,5000,2500,1250]
   let player = `x`;
   let machine = `o`
   let turn = `player`;
@@ -21,6 +23,7 @@
     console.log(`game has started`)
     document.getElementById(`buttonStart`).innerHTML = `game on`;
     document.getElementById(`buttonStart`).style.backgroundColor = `green`;
+    document.getElementById(`score_slot`).innerHTML = score;
   }
   const endGame = () => {
     gameStarted = false;
@@ -32,7 +35,7 @@
     board = [0,0,0,0,0,0,0,0,0];
     board.map((e,i)=>{
       document.getElementById(`${i}`).innerHTML = ``;
-      document.getElementById(`${i}`).style.backgroundColor = `#FFFFFF`;
+      document.getElementById(`${i}`).style.backgroundColor = ``;
     })
     document.getElementById(`buttonStart`).innerHTML = `start`
     document.getElementById(`buttonStart`).style.backgroundColor = `red`;
@@ -146,6 +149,9 @@
         document.getElementById(xx).style.backgroundColor = `green`;
       })
       alert(`congratulations you win!!!!!`)
+      let randScoreIdx = getRndInteger(0,parseInt(1 * winPoints.length - 1))
+      score+=winPoints[randScoreIdx];
+      document.getElementById('score_slot').innerHTML=score;
       endGame();
       return;
     }
@@ -175,9 +181,10 @@
 .card {
   background-color:#FFFFFF;
   border:3px dashed blue;
-  width:430px;
-  height:430px;
+  width:320px;
+  height:320px;
   padding:30px;
+  margin:20px;
 }
 .row-z {
   display: flex;
@@ -185,22 +192,23 @@
 }
 .n-sq {
   margin:10px;
-  width:100px;
-  height:100px;
+  width:60px;
+  height:60px;
   border-radius:10px;
   background:#e0e0e0;
   box-shadow:20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
-  font-size:80px;
+  font-size:50px;
   text-align:center;
   padding:10px;
 }
 .buttonStart {
+  display: inline-block;
   width:100px;
   margin:5px;
   padding: 10px;
   text-align: center;
   font-weight:'bold';
-  font-size: 20px;
+  font-size: 15px;
   color:#FFFFFF;
   background-color:red;
   border-radius:10px;
@@ -217,10 +225,14 @@
 .optHouse {
   margin:20px;
   padding:10px;
-  width:400px;
+  width:320px;
   text-align: right;
 }
 </style>
+
+<div>
+  <span><span>score: </span><span id="score_slot">0</span></span>
+</div>
 
 <div class="card">
   <div class="row-z">
