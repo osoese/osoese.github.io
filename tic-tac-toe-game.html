@@ -108,14 +108,88 @@
       return false;
     }
   }
+  function arrayUnique(array) {
+      var a = array.concat();
+      for(var i=0; i<a.length; ++i) {
+          for(var j=i+1; j<a.length; ++j) {
+              if(a[i] === a[j])
+                  a.splice(j--, 1);
+          }
+      }
+
+      return a;
+  }
   const machineTurn = async () => {
     let avails = [];
+    let musts = [];
+    let mays = [];
+    let takens = [];
+    let previous = [];
     await board.map((x,i) => {
       if(x == 0){
         avails.push(i);
       }
+      if(x == 1){
+        takens.push(i)
+      }
+      if(x == 2){
+        previous.push(i)
+      }
     })
     if(avails.length > 0){
+      /****adding machine logic****/
+      let row = [];
+      let arow = [];
+      row[0] = takens.filter(r=> [0,1,2].includes(r))
+      arow[0] = [0,1,2].filter( rr => rr != row[0] )
+      row[1] = takens.filter(r=> [3,4,5].includes(r))
+      arow[1] = [3,4,5].filter( rr => rr != row[1] )
+      row[2] = takens.filter(r=> [6,7,8].includes(r))
+      arow[2] = [6,7,8].filter( rr => rr != row[2] )
+      row[3] = takens.filter(r=> [0,3,6].includes(r))
+      arow[3] = [0,3,6].filter( rr => rr != row[3] )
+      row[4] = takens.filter(r=> [1,4,7].includes(r))
+      arow[4] = [1,4,7].filter( rr => rr != row[4] )
+      row[5] = takens.filter(r=> [2,5,8].includes(r))
+      arow[5] = [2,5,8].filter( rr => rr != row[5] )
+      row[6] = takens.filter(r=> [0,4,8].includes(r))
+      arow[6] = [0,4,8].filter( rr => rr != row[6] )
+      row[7] = takens.filter(r=> [6,4,2].includes(r))
+      arow[7] = [6,4,2].filter( rr => rr != row[7] )
+
+      for(let i=0; i< row.length; i+=1){
+        if(row[i].length > 0){
+          if(row[i].length == 2){
+            console.log(`avails MUST weight to row${i}`)
+            console.log(row[i])
+            musts = arrayUnique(musts.concat(arow[i]));
+            console.log(musts)
+          }
+          console.log(`avails may weight to row${i}`)
+          mays = arrayUnique(mays.concat(arow[i]))
+          console.log(mays)
+        }
+        console.log(`r${i} row[i] ${JSON.stringify(row[i])} arow[i] ${JSON.stringify(arow[i])}`)
+      }
+
+      /****end adding machine logic****/
+      console.log(musts)
+      if(musts.length > 0){
+        //avails = musts;
+        console.log(`avails updated to be musts`)
+        musts = musts.filter(r => avails.includes(r))
+        avails = musts;
+        console.log(musts)
+        console.log(avails)
+      }
+      if(musts.length == 0 && mays.length > 0){
+        //avails = mays;
+        console.log(`avails updated to be mays`)
+        mays = mays.filter(r => avails.includes(r))
+        avails = mays;
+        console.log(mays)
+        console.log(avails)
+      }
       let randIdx = getRndInteger(0,parseInt(1 * avails.length - 1))
       board[avails[randIdx]] = 2;
       document.getElementById(`${avails[randIdx]}`).innerHTML = machine.toUpperCase();
@@ -138,6 +212,7 @@
     //alert(`rand is ${randIdx} ${JSON.stringify(board)}`)
   }
   const ticTacToe = async (ele) => {
+    let chosen = parseInt(ele.id);
     if(gameWon == true){
       return;
     }
@@ -145,10 +220,11 @@
       startGame();
     }
     if(ele.innerHTML == ""){
-      let chosen = parseInt(ele.id);
       board[chosen] = 1;
       //alert(JSON.stringify(board))
       ele.innerHTML = player.toUpperCase()
+    }else{
+      return false;
     }
     let checkWin = await isWinner(1);
     if(checkWin){

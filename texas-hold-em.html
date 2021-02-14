@@ -1,0 +1,371 @@
+<html>
+<script>
+  let players = 0;
+  let dealt = 0;
+  let cardsToDeal = 0;
+  function shuffle(deck) {
+  	// for 1000 turns
+  	// switch the values of two random cards
+  	for (let i = 0; i < 1000; i++)
+  	{
+  		let location1 = Math.floor((Math.random() * deck.length));
+  		let location2 = Math.floor((Math.random() * deck.length));
+  		let tmp = deck[location1];
+
+  		deck[location1] = deck[location2];
+  		deck[location2] = tmp;
+  	}
+  }
+  function getDeck() {
+    let deck = new Array();
+  	for(let i = 0; i < suits.length; i++)
+  	{
+  		for(let x = 0; x < values.length; x++)
+  		{
+  			let card = {Value: values[x], Suit: suits[i]};
+  			deck.push(card);
+  		}
+  	}
+
+  	return deck;
+  }
+
+  var suits = ["spades", "diamonds", "clubs", "hearts"];
+  var values = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"];
+  let myDeck = getDeck();
+  shuffle(myDeck);
+  async function deal() {
+    //document.getElementById('a').innerHTML = `${myDeck[0].Suit}${myDeck[0].Value}`;
+
+    if(dealt < players){
+      let carda = await parseInt(1*cardsToDeal);
+      cardsToDeal+=1;
+      let cardb = await parseInt(1*cardsToDeal);
+      cardsToDeal+=1;
+      dealt+=1;
+      let value = document.createElement("div");
+  		let suit = document.createElement("div");
+      value.className = "value";
+  		suit.className = "suit " + myDeck[carda].Suit;
+      value.innerHTML = myDeck[carda].Value;
+  		document.getElementById(`p${dealt}a`).appendChild(value);
+  		document.getElementById(`p${dealt}a`).appendChild(suit);
+
+      let value2 = document.createElement("div");
+  		let suit2 = document.createElement("div");
+      value2.className = "value";
+  		suit2.className = "suit " + myDeck[cardb].Suit;
+      value2.innerHTML = myDeck[cardb].Value;
+  		document.getElementById(`p${dealt}b`).appendChild(value2);
+  		document.getElementById(`p${dealt}b`).appendChild(suit2);
+
+      setTimeout(deal,1000);
+    }else{
+      let carda = await parseInt(1*cardsToDeal);
+      cardsToDeal+=1;
+      let cardb = await parseInt(1*cardsToDeal);
+      cardsToDeal+=1;
+      dealt+=1;
+      let cardc = await parseInt(1*cardsToDeal);
+      cardsToDeal+=1;
+      dealt+=1;
+      let cardd = await parseInt(1*cardsToDeal);
+      cardsToDeal+=1;
+      dealt+=1;
+      let carde = await parseInt(1*cardsToDeal);
+      cardsToDeal+=1;
+      dealt+=1;
+      let value = document.createElement("div");
+      let suit = document.createElement("div");
+      value.className = "value";
+      suit.className = "suit " + myDeck[carda].Suit;
+      value.innerHTML = myDeck[carda].Value;
+      document.getElementById(`flopa`).appendChild(value);
+      document.getElementById(`flopa`).appendChild(suit);
+
+      let value2 = document.createElement("div");
+      let suit2 = document.createElement("div");
+      value2.className = "value";
+      suit2.className = "suit " + myDeck[cardb].Suit;
+      value2.innerHTML = myDeck[cardb].Value;
+      document.getElementById(`flopb`).appendChild(value2);
+      document.getElementById(`flopb`).appendChild(suit2);
+
+      let value3 = document.createElement("div");
+      let suit3 = document.createElement("div");
+      value3.className = "value";
+      suit3.className = "suit " + myDeck[cardc].Suit;
+      value3.innerHTML = myDeck[cardc].Value;
+      document.getElementById(`flopc`).appendChild(value3);
+      document.getElementById(`flopc`).appendChild(suit3);
+    }
+
+
+  }
+  const choosePlayers = () => {
+    console.log(`why no choose playa`)
+    let numP = document.getElementById("mySelect").options[document.getElementById("mySelect").selectedIndex].value;
+    players = parseInt(numP);
+    loadFunction()
+  }
+
+  const loadFunction = () =>{
+    if(players == 0){
+      //let option = document.createElement("div");
+      document.getElementById('admin').innerHTML = `choose number of players`;
+      let arrayOpts = [1,2,3,4,5,6,7,8,9]
+      let numElement = document.createElement("select")
+      numElement.onchange = choosePlayers;
+      document.getElementById('admin').appendChild(numElement);
+      numElement.id = "mySelect";
+      for (var i = 0; i < arrayOpts.length; i++) {
+        var option = document.createElement("option");
+        option.value = arrayOpts[i];
+        option.text = arrayOpts[i];
+        numElement.appendChild(option);
+      }
+
+    }else{
+      document.getElementById('admin').onclick = deal;
+      document.getElementById('admin').innerHTML = `deal`;
+    }
+  }
+
+</script>
+
+<style>
+
+  .hand {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    min-width:125px;
+    min-height:65px;
+    margin:5px;
+    padding:10px;
+  }
+
+  .card
+  {
+  	border: solid 1px black;
+  	border-radius: 9px;
+    min-width: 60px;
+  	width: 60px;
+  	height: 100px;
+  	background-color: white;
+    padding:3px;
+  }
+
+  .card2
+  {
+    width: 50px;
+    padding: 10px;
+    border: solid 1px #808080;
+    background-color: white;
+    display: inline-block;
+    border-radius: 10px;
+    font-size: 22px;
+    text-align: center;
+    margin: 3px;
+    border:solid 3px;
+  }
+
+  .value{
+  	font-size:15pt;
+  	font-family: sans-serif;
+  }
+
+  .suit
+  {
+  	background-image: url('https://www.thatsoftwaredude.com/images/post/0f631eeb-6c4a-4bfd-9f86-e0a08ae8584b.png');
+    background-size: 120px 120px;
+    width: 60px;
+  	height: 60px;
+  }
+
+  .diamonds
+  {
+  	background-position-y: 60px;
+  }
+
+  .hearts
+  {
+  	background-position-x: 60px;
+  }
+
+  .clubs
+  {
+  	background-position-x:60px;
+  	background-position-y:60px;
+  }
+
+  .table {
+    width:970px;
+    height:570px;
+    background-color: green;
+    border: 1px solid black;
+    border-radius: 100px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .top_row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    min-width: 900px;
+    min-height: 135px;
+    margin-top: 20px;
+  }
+
+  .table #p1 {
+    border:2px solid orange;
+    border-radius: 25px;
+    height: 130px;
+    width:160px;
+  }
+
+  .table #p2 {
+    border:2px solid orange;
+    border-radius: 25px;
+    height: 130px;
+    width:160px;
+  }
+
+  .table #p3 {
+    border:2px solid orange;
+    border-radius: 25px;
+    height: 130px;
+    width:160px;
+  }
+
+  .table #p4 {
+    border:2px solid orange;
+    border-radius: 25px;
+    height: 130px;
+    width:160px;
+  }
+
+  .table #p5 {
+    border:2px solid orange;
+    border-radius: 25px;
+    height: 130px;
+    width:160px;
+  }
+
+  .table #p6 {
+    border:2px solid orange;
+    border-radius: 25px;
+    height: 130px;
+    width:160px;
+  }
+
+  .table #p7 {
+    border:2px solid orange;
+    border-radius: 25px;
+    height: 130px;
+    width:160px;
+  }
+
+  .table #p8 {
+    border:2px solid orange;
+    border-radius: 25px;
+    height: 130px;
+    width:160px;
+  }
+
+  .table #p9 {
+    border:2px solid orange;
+    border-radius: 25px;
+    height: 130px;
+    width:160px;
+  }
+
+  .table #flop {
+    border:2px solid orange;
+    border-radius: 25px;
+    height: 130px;
+    width:400px;
+  }
+
+</style>
+
+
+  <div class="table">
+
+    <div class="top_row">
+
+      <span id="p1" class="hand">
+        <span id="p1a" class="card"></span>
+        <span id="p1b" class="card"></span>
+      </span>
+
+      <span id="p2" class="hand">
+        <span id="p2a" class="card"></span>
+        <span id="p2b" class="card"></span>
+      </span>
+
+      <span id="p3" class="hand">
+        <span id="p3a" class="card"></span>
+        <span id="p3b" class="card"></span>
+      </span>
+
+      <span id="p4" class="hand">
+        <span id="p4a" class="card"></span>
+        <span id="p4b" class="card"></span>
+      </span>
+
+    </div>
+
+    <div class = "top_row">
+
+      <span id="p9" class="hand">
+        <span id="p9a" class="card"></span>
+        <span id="p9b" class="card"></span>
+      </span>
+
+      <span id="flop" class="hand">
+        <span id="flopa" class="card"></span>
+        <span id="flopb" class="card"></span>
+        <span id="flopc" class="card"></span>
+        <span id="flopd" class="card"></span>
+        <span id="flope" class="card"></span>
+      </span>
+
+      <span id="p5" class="hand">
+        <span id="p5a" class="card"></span>
+        <span id="p5b" class="card"></span>
+      </span>
+
+    </div>
+
+    <div class = "top_row">
+
+      <span id="p8" class="hand">
+        <span id="p8a" class="card"></span>
+        <span id="p8b" class="card"></span>
+      </span>
+
+      <span id="p7" class="hand">
+        <span id="p7a" class="card"></span>
+        <span id="p7b" class="card"></span>
+      </span>
+
+      <span id="p6" class="hand">
+        <span id="p6a" class="card"></span>
+        <span id="p6b" class="card"></span>
+      </span>
+
+    </div>
+
+  </div>
+
+  <div id="admin">
+    <div onClick="deal()">deal</div>
+  </div>
+
+  <script>
+    loadFunction();
+  </script>
+
+</html>
