@@ -6,17 +6,43 @@
 <body>
 
 <div>hi</div>
-<button class="enableEthereumButton">Enable Ethereum</button>
+<button class="enableEthereumButton btn">Enable Ethereum</button>
+<button class="sendEthButton btn">Send Eth</button>
 </body>
 
 <script>
 
-  const ethereumButton = document.querySelector('.enableEthereumButton');
+    const ethereumButton = document.querySelector('.enableEthereumButton');
+    const sendEthButton = document.querySelector('.sendEthButton');
 
-  ethereumButton.addEventListener('click', () => {
-    //Will Start the metamask extension
-    ethereum.request({ method: 'eth_requestAccounts' });
-  });
+    let accounts = [];
+
+    //Sending Ethereum to an address
+    sendEthButton.addEventListener('click', () => {
+    ethereum
+      .request({
+        method: 'eth_sendTransaction',
+        params: [
+          {
+            from: accounts[0],
+            to: '0xe9994B93C128E9cC56612c70E339B2995cb19E5A',
+            value: '0x29a2241af62c0000',
+            gasPrice: '0x09184e72a000',
+            gas: '0x2710',
+          },
+        ],
+      })
+      .then((txHash) => console.log(txHash))
+      .catch((error) => console.error);
+    });
+
+    ethereumButton.addEventListener('click', () => {
+    getAccount();
+    });
+
+    async function getAccount() {
+    accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+    }
 
 </script>
 
