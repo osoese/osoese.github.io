@@ -414,19 +414,34 @@
       accounts = await ethereum.request({ method: 'eth_requestAccounts' });
     }
 
-    etttBalance.addEventListener('click', () => {
-    contract.functionName.balanceOf(`0xe9994B93C128E9cC56612c70E339B2995cb19E5A`,{
-            from:web3.eth.accounts[0],
-            gas:4000000},function (error, result){ //get callback from function which is your transaction key
-                if(!error){
-                    console.log(result);
-                } else{
-                    console.log(error);
-                }
-        })
-      .then((txHash) => console.log(txHash))
-      .catch((error) => console.error);
-    });
+    const tokenAddress = '0x48C34f68D911e4C82747f8fa9EB55Ca6613DFb7A';
+    const tokenSymbol = 'ETTT';
+    const tokenDecimals = 18;
+    const tokenImage = 'http://placekitten.com/200/300';
+
+    try {
+      // wasAdded is a boolean. Like any RPC method, an error may be thrown.
+      const wasAdded = await ethereum.request({
+        method: 'balanceOf',
+        params: {
+          type: 'ERC20', // Initially only supports ERC20, but eventually more!
+          options: {
+            address: tokenAddress, // The address that the token is at.
+            symbol: tokenSymbol, // A ticker symbol or shorthand, up to 5 chars.
+            decimals: tokenDecimals, // The number of decimals in the token
+            image: tokenImage, // A string url of the token logo
+          },
+        },
+      });
+
+      if (wasAdded) {
+        console.log('Thanks for your interest!');
+      } else {
+        console.log('Your loss!');
+      }
+    } catch (error) {
+      console.log(error);
+    }
 
 </script>
 
