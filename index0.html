@@ -417,7 +417,7 @@
     const tokenImage = 'http://placekitten.com/200/300';
 
     ( async () => {
-      const contract = new eth.Contract(abi, tokenAddress);
+      const contract = new ethereum.Contract(abi, tokenAddress);
 
       await contract.methods
           .balanceOf(accounts[0])
