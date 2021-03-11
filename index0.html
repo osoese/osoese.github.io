@@ -419,12 +419,11 @@
     ( async () => {
       const contract = new eth.Contract(abi, tokenAddress);
 
-      contract.methods
+      await contract.methods
           .balanceOf(accounts[0])
           .call()
           .then(console.log)
           .catch(console.error);
-
 
     })();
 
