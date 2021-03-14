@@ -951,8 +951,17 @@
         await contract.methods
             .totalSupply()
             .call()
-            .then(bal => {
+            .then(async bal => {
               if(parseInt(bal) > 0)
+              for(let i=1;i<= bal;i++){
+                await contract.methods
+                    .tokenURI(i)
+                    .call()
+                    .then(async link => {
+                      document.getElementById("my_content").innerHTML+="<a href="+link+"></a>"
+                    })
+                    .catch(console.error);
+              }
               console.log(parseInt(bal))
             })
             .catch(console.error);
