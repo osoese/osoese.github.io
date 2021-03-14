@@ -514,7 +514,7 @@
       const thisNFTContract = await new web3.eth.Contract(abiNFTTA,nftAddressTA);
       let check = await ethEnabled();
       if(check){
-        thisNFTContract.methods
+        await thisNFTContract.methods
         .safeTransferFrom(from,to,idz)
         .call()
         .then(async confirmation => {
@@ -1435,7 +1435,7 @@
       	}
       ]
     const nftAddress = '0x8579D4aF1550f3522385cb695a9529Fe297F474a';
-    console.log(`nft button enabled hash110zhMTzy`)
+    console.log(`nft button enabled hash111zhMTzy`)
 
     nftBalance.addEventListener('click', async () => {
 
