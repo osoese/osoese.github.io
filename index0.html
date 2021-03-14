@@ -937,7 +937,7 @@
       	}
       ]
     const nftAddress = '0x8579D4aF1550f3522385cb695a9529Fe297F474a';
-    console.log(`nft button enabled hash79hMTzy`)
+    console.log(`nft button enabled hash76hMTzy`)
 
     nftBalance.addEventListener('click', async () => {
 
@@ -986,7 +986,7 @@
                     .ownerOf(i)
                     .call()
                     .then(async addrOwner => {
-                      console.log(`owner of ${i} is ${addrOwner}`)
+                      console.log(`owner of ${i} is ${addrOwner} and you are ${account[0]}`)
                       if(addrOwner == accounts[0]){
                         document.getElementById("my_content").innerHTML+="<div><input id='send_asset_"+id+"' type='text' /></div>";
                         mySellButtons[i] = `tradeAsset_${id}`
