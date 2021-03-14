@@ -516,7 +516,7 @@
       if(check){
         await getAccount();
         await thisNFTContract.methods
-        .safeTransferFrom(from,to,idz)
+        .transferFrom(from,to,idz)
         .call()
         .then(async confirmation => {
           alert(`your tx id is ${JSON.stringify(confirmation)}`)
