@@ -988,10 +988,10 @@
                     .then(async addrOwner => {
                       console.log(`owner of ${i} is ${addrOwner} and you are ${accounts[0]}`)
                       if(addrOwner.toLowerCase() == accounts[0].toLowerCase()){
-                        document.getElementById("my_content").innerHTML+="<div><input id='send_asset_"+i+"' type='text' /></div>";
-                        document.getElementById("my_content").innerHTML+="<div><button class='tradeAsset_"+i+" btn'>TRADE ASSET</button></div>";
+                        document.getElementById("my_content").innerHTML = await document.getElementById("my_content").innerHTML + "<div><input id='send_asset_"+i+"' type='text' /></div>";
+                        document.getElementById("my_content").innerHTML = await document.getElementById("my_content").innerHTML + "<div><button class='tradeAsset_"+i+" btn'>TRADE ASSET</button></div>";
                         mySellButtons[i] = await document.querySelector(`tradeAsset_${i}`);
-                        mySellButtons[i].addEventListener('click', () => {
+                        await mySellButtons[i].addEventListener('click', () => {
                           contract.methods
                           .safeTransferFrom(accounts[0],document.getElementById(`send_asset_${i}`).value,i)
                           .call()
