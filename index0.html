@@ -967,8 +967,8 @@
                       document.getElementById("my_content").innerHTML+="<div><iframe id='myframe_"+i+"' width='500' height='300' style='-webkit-transform:scale(0.5);-moz-transform-scale(0.5);'></iframe></div>";
                       myAjaxCalls[i] = new XMLHttpRequest();
                       myAjaxCalls[i].onreadystatechange = function() {
-                          if (xhr.readyState !== 4) return;
-                          if (xhr.status === 200) {
+                          if (myAjaxCalls[i].readyState !== 4) return;
+                          if (myAjaxCalls[i].status === 200) {
 
                               var doc = document.getElementById(`myframe_${i}`).contentWindow.document;
                               doc.open();
