@@ -976,7 +976,7 @@
                               doc.close();
                           }
                       }
-                      myAjaxCalls[i].open('GET', `https://cors-anywhere.herokuapp.com/${link}`, true);
+                      myAjaxCalls[i].open('GET', `${link}`, true);
                       myAjaxCalls[i].send(null);
                     })
                     .catch(console.error);
