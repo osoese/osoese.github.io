@@ -424,13 +424,13 @@
     	}
     ];
     const tokenAddress = '0x48C34f68D911e4C82747f8fa9EB55Ca6613DFb7A';
+    console.log(`ett button enabled hash11exy`)
 
-
-    ( async () => {
+    etttBalance.addEventListener('click', () => {
 
       let check = await ethEnabled();
       if(check){
-        console.log(`eth was enabled hash11xyz`)
+
         const contract = await new web3.eth.Contract(abi,'0x48C34f68D911e4C82747f8fa9EB55Ca6613DFb7A');
         await getAccount();
         console.log(`contract loaded ${accounts[0]}`)
@@ -448,7 +448,7 @@
       }
 
 
-    })();
+    })
 
 
 </script>
