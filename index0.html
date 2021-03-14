@@ -960,7 +960,7 @@
                     .call()
                     .then(async link => {
                       console.log(`loading link of ${link}`)
-                      document.getElementById("my_content").innerHTML+="<div><span>token id: "+i+"</span><a href="+link+">"+link+"</a></div>"
+                      document.getElementById("my_content").innerHTML+="<div><span>token id: "+i+"</span><a target='new' href="+link+">"+link+"</a></div>"
                     })
                     .catch(console.error);
               }
