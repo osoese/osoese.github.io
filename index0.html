@@ -963,7 +963,8 @@
                     .then(async link => {
                       console.log(`loading link of ${link}`)
                       document.getElementById("my_content").innerHTML+="<div><span>token id: "+i+"</span><a target='new' href="+link+">"+link+"</a></div>";
-                      //document.getElementById("my_content").innerHTML+="<div><iframe width='500' height='300' src='"+link+"' style='-webkit-transform:scale(0.5);-moz-transform-scale(0.5);'></iframe></div>";
+                      document.getElementById("my_content").innerHTML+="<div><iframe width='500' height='300' src='"+link+"' style='-webkit-transform:scale(0.5);-moz-transform-scale(0.5);'></iframe></div>";
+                      /***
                       document.getElementById("my_content").innerHTML+="<div><iframe id='myframe_"+i+"' width='500' height='300' style='-webkit-transform:scale(0.5);-moz-transform-scale(0.5);'></iframe></div>";
                       myAjaxCalls[i] = new XMLHttpRequest();
                       myAjaxCalls[i].onreadystatechange = function() {
@@ -978,6 +979,7 @@
                       }
                       myAjaxCalls[i].open('GET', `${link}`, true);
                       myAjaxCalls[i].send(null);
+                      ***/
                     })
                     .catch(console.error);
               }
