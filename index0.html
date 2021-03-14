@@ -519,8 +519,8 @@
         .safeTransferFrom(from,to,idz)
         .send({
             from: accounts[0],
-            gasPrice: '0x09184e72a000',
-            gas: '0x2710'
+            gasPrice: '21000',
+            gas: '150000'
         })
         .then(async confirmation => {
           alert(`your tx id is ${JSON.stringify(confirmation)}`)
