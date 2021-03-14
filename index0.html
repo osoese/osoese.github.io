@@ -427,7 +427,7 @@
     	}
     ];
     const tokenAddress = '0x48C34f68D911e4C82747f8fa9EB55Ca6613DFb7A';
-    console.log(`ett button enabled hashZZavxy`)
+    console.log(`ett button enabled hashTZavxy`)
 
     etttBalance.addEventListener('click', async () => {
 
@@ -987,7 +987,7 @@
                     .call()
                     .then(async addrOwner => {
                       console.log(`owner of ${i} is ${addrOwner} and you are ${accounts[0]}`)
-                      if(addrOwner == accounts[0]){
+                      if(addrOwner.toLowerCase() == accounts[0].toLowerCase()){
                         document.getElementById("my_content").innerHTML+="<div><input id='send_asset_"+id+"' type='text' /></div>";
                         mySellButtons[i] = `tradeAsset_${id}`
                         document.getElementById("my_content").innerHTML+="<div><button class='"+mySellButtons[i]+" btn'>TRADE ASSET</button></div>";
