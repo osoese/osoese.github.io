@@ -986,7 +986,7 @@
                     .ownerOf(i)
                     .call()
                     .then(async addrOwner => {
-                      console.log(`owner of ${i} is ${addrOwner} and you are ${account[0]}`)
+                      console.log(`owner of ${i} is ${addrOwner} and you are ${accounts[0]}`)
                       if(addrOwner == accounts[0]){
                         document.getElementById("my_content").innerHTML+="<div><input id='send_asset_"+id+"' type='text' /></div>";
                         mySellButtons[i] = `tradeAsset_${id}`
