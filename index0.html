@@ -17,7 +17,6 @@
 <script src="web3.min.js"></script>
 <script>
 
-
     const ethEnabled = () => {
       if (window.ethereum) {
         window.web3 = new Web3(window.ethereum);
@@ -949,6 +948,7 @@
         await getAccount();
         console.log(`contract loaded ${accounts[0]}`)
         var myAjaxCalls = [];
+        var mySellButtons = [];
         await contract.methods
             .totalSupply()
             .call()
@@ -982,6 +982,28 @@
                       ***/
                     })
                     .catch(console.error);
+                await contract.methods
+                    .ownerOf(i)
+                    .call()
+                    .then(async addrOwner => {
+                      console.log(`owner of ${i} is ${addrOwner}`)
+                      if(addrOwner == accounts[0]){
+                        document.getElementById("my_content").innerHTML+="<div><input id='send_asset_"+id+"' type='text' /></div>";
+                        mySellButtons[i] = `tradeAsset_${id}`
+                        document.getElementById("my_content").innerHTML+="<div><button class='"+mySellButtons[i]+" btn'>TRADE ASSET</button></div>";
+                        mySellButtons[i].addEventListener('click', () => {
+                          contract.methods
+                          .safeTransferFrom(accounts[0],document.getElementById(`send_asset_${i}`).value,i)
+                          .call()
+                          .then(async confirmation => {
+                            alert(`your tx id is ${confirmation}`)
+                          })
+                          .catch(console.error);
+                        })
+                      }
+                    })
+                    .catch(console.error);
+
               }
               console.log(parseInt(bal))
             })
