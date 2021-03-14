@@ -430,14 +430,17 @@
 
       let check = await ethEnabled();
       if(check){
-        console.log(`eth was enabled hash567`)
+        console.log(`eth was enabled hash8910`)
         const contract = await new web3.eth.Contract(abi,'0x48C34f68D911e4C82747f8fa9EB55Ca6613DFb7A');
         await getAccount();
         console.log(`contract loaded ${accounts[0]}`)
         await contract.methods
             .balanceOf(accounts[0])
             .call()
-            .then(console.log)
+            .then(bal => {
+              if(parseInt(bal) > 0)
+              console.log(parseFloat(bal/100))
+            })
             .catch(console.error);
 
       }else{
