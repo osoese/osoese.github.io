@@ -937,7 +937,7 @@
       	}
       ]
     const nftAddress = '0x8579D4aF1550f3522385cb695a9529Fe297F474a';
-    console.log(`nft button enabled hash98hMTzy`)
+    console.log(`nft button enabled hash99zhMTzy`)
 
     nftBalance.addEventListener('click', async () => {
 
@@ -1001,15 +1001,6 @@
                         document.getElementById("my_content").innerHTML+="<div><input id='send_asset_"+i+"' type='text' /></div>";
                         document.getElementById("my_content").innerHTML+="<div><button onClick='tradeAsset("+accounts[0]+","+document.getElementById(`send_asset_${i}`).value+","+i+")' class='tradeAsset_"+i+" btn'>TRADE ASSET</button></div>";
                         mySellButtons[i] = await document.querySelector(`tradeAsset_${i}`);
-                        mySellButtons[i].addEventListener('click', () => {
-                          contract.methods
-                          .safeTransferFrom(accounts[0],document.getElementById(`send_asset_${i}`).value,i)
-                          .call()
-                          .then(async confirmation => {
-                            alert(`your tx id is ${confirmation}`)
-                          })
-                          .catch(console.error);
-                        })
                       }
                     })
                     .catch(console.error);
