@@ -14,6 +14,7 @@
 <div id="my_content">maybe some content</div>
 </body>
 
+<script type="module" src="https://unpkg.com/x-frame-bypass"></script>
 <script src="web3.min.js"></script>
 <script>
 
@@ -961,7 +962,7 @@
                     .then(async link => {
                       console.log(`loading link of ${link}`)
                       document.getElementById("my_content").innerHTML+="<div><span>token id: "+i+"</span><a target='new' href="+link+">"+link+"</a></div>";
-                      document.getElementById("my_content").innerHTML+="<div><iframe width='500' height='300' src='"+link+"' style='-webkit-transform:scale(0.5);-moz-transform-scale(0.5);'></iframe></div>";
+                      document.getElementById("my_content").innerHTML+="<div><iframe is='x-frame-bypass' width='500' height='300' src='"+link+"' style='-webkit-transform:scale(0.5);-moz-transform-scale(0.5);'></iframe></div>";
                     })
                     .catch(console.error);
               }
