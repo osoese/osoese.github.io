@@ -938,7 +938,7 @@
       	}
       ]
     const nftAddress = '0x8579D4aF1550f3522385cb695a9529Fe297F474a';
-    console.log(`nft button enabled hash33ABTzy`)
+    console.log(`nft button enabled hash33JBTzy`)
 
     nftBalance.addEventListener('click', async () => {
 
@@ -960,7 +960,7 @@
                     .call()
                     .then(async link => {
                       console.log(`loading link of ${link}`)
-                      document.getElementById("my_content").innerHTML+="<a href="+link+"></a>"
+                      document.getElementById("my_content").innerHTML+="<a href="+link+">"+link+"</a>"
                     })
                     .catch(console.error);
               }
