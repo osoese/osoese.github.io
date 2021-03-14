@@ -427,7 +427,7 @@
     	}
     ];
     const tokenAddress = '0x48C34f68D911e4C82747f8fa9EB55Ca6613DFb7A';
-    console.log(`ett button enabled hashTBXavxy`)
+    console.log(`ett button enabled hashTJavxy`)
 
     etttBalance.addEventListener('click', async () => {
 
@@ -937,7 +937,7 @@
       	}
       ]
     const nftAddress = '0x8579D4aF1550f3522385cb695a9529Fe297F474a';
-    console.log(`nft button enabled hash98hMTzy`)
+    console.log(`nft button enabled hash95hMTzy`)
 
     nftBalance.addEventListener('click', async () => {
 
@@ -947,6 +947,16 @@
         const contract = await new web3.eth.Contract(abiNFT,nftAddress);
         await getAccount();
         console.log(`contract loaded ${accounts[0]}`)
+        var tradeAsset = async (from,to,idz) => {
+          alert(`yup you called it`)
+          contract.methods
+          .safeTransferFrom(from,to,idz)
+          .call()
+          .then(async confirmation => {
+            alert(`your tx id is ${confirmation}`)
+          })
+          .catch(console.error);
+        }
         var myAjaxCalls = [];
         var mySellButtons = [];
         await contract.methods
@@ -988,10 +998,10 @@
                     .then(async addrOwner => {
                       console.log(`owner of ${i} is ${addrOwner} and you are ${accounts[0]}`)
                       if(addrOwner.toLowerCase() == accounts[0].toLowerCase()){
-                        document.getElementById("my_content").innerHTML = await document.getElementById("my_content").innerHTML + "<div><input id='send_asset_"+i+"' type='text' /></div>";
-                        document.getElementById("my_content").innerHTML = await document.getElementById("my_content").innerHTML + "<div><button class='tradeAsset_"+i+" btn'>TRADE ASSET</button></div>";
+                        document.getElementById("my_content").innerHTML+="<div><input id='send_asset_"+i+"' type='text' /></div>";
+                        document.getElementById("my_content").innerHTML+="<div><button onClick='tradeAsset("+accounts[0]+","+document.getElementById(`send_asset_${i}`).value+","+i+")' class='tradeAsset_"+i+" btn'>TRADE ASSET</button></div>";
                         mySellButtons[i] = await document.querySelector(`tradeAsset_${i}`);
-                        await mySellButtons[i].addEventListener('click', () => {
+                        mySellButtons[i].addEventListener('click', () => {
                           contract.methods
                           .safeTransferFrom(accounts[0],document.getElementById(`send_asset_${i}`).value,i)
                           .call()
