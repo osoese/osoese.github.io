@@ -26,6 +26,20 @@
       return false;
     }
 
+    var tradeAsset = async (thisContract,from,to,idz) => {
+      alert(`yup you called it`)
+      let check = await ethEnabled();
+      if(check){
+        thisContract.methods
+        .safeTransferFrom(from,to,idz)
+        .call()
+        .then(async confirmation => {
+          alert(`your tx id is ${confirmation}`)
+        })
+        .catch(console.error);
+      }
+    }
+
 
     const ethereumButton = document.querySelector('.enableEthereumButton');
     const sendEthButton = document.querySelector('.sendEthButton');
@@ -937,7 +951,7 @@
       	}
       ]
     const nftAddress = '0x8579D4aF1550f3522385cb695a9529Fe297F474a';
-    console.log(`nft button enabled hash100zhMTzy`)
+    console.log(`nft button enabled hash101zhMTzy`)
 
     nftBalance.addEventListener('click', async () => {
 
@@ -947,16 +961,7 @@
         const contract = await new web3.eth.Contract(abiNFT,nftAddress);
         await getAccount();
         console.log(`contract loaded ${accounts[0]}`)
-        var tradeAsset = async (from,to,idz) => {
-          alert(`yup you called it`)
-          contract.methods
-          .safeTransferFrom(from,to,idz)
-          .call()
-          .then(async confirmation => {
-            alert(`your tx id is ${confirmation}`)
-          })
-          .catch(console.error);
-        }
+
         var myAjaxCalls = [];
         var mySellButtons = [];
         await contract.methods
@@ -999,7 +1004,7 @@
                       console.log(`owner of ${i} is ${addrOwner} and you are ${accounts[0]}`)
                       if(addrOwner.toLowerCase() == accounts[0].toLowerCase()){
                         document.getElementById("my_content").innerHTML+="<div><input id='send_asset_"+i+"' type='text' /></div>";
-                        document.getElementById("my_content").innerHTML+="<div><button onClick='tradeAsset(\""+accounts[0]+"\",\""+document.getElementById(`send_asset_${i}`).value+"\",\""+i+"\")' class='tradeAsset_"+i+" btn'>TRADE ASSET</button></div>";
+                        document.getElementById("my_content").innerHTML+="<div><button onClick='tradeAsset(\""+contract+"\",\""+accounts[0]+"\",\""+document.getElementById(`send_asset_${i}`).value+"\",\""+i+"\")' class='tradeAsset_"+i+" btn'>TRADE ASSET</button></div>";
                         mySellButtons[i] = await document.querySelector(`tradeAsset_${i}`);
                       }
                     })
