@@ -948,7 +948,7 @@
         const contract = await new web3.eth.Contract(abiNFT,nftAddress);
         await getAccount();
         console.log(`contract loaded ${accounts[0]}`)
-        let myAjaxCalls = [];
+        var myAjaxCalls = [];
         await contract.methods
             .totalSupply()
             .call()
