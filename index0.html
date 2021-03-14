@@ -514,6 +514,7 @@
       const thisNFTContract = await new web3.eth.Contract(abiNFTTA,nftAddressTA);
       let check = await ethEnabled();
       if(check){
+        await getAccount();
         await thisNFTContract.methods
         .safeTransferFrom(from,to,idz)
         .call()
