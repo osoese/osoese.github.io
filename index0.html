@@ -14,7 +14,7 @@
 <script src="web3.min.js"></script>
 <script>
 
-    
+
     const ethEnabled = () => {
       if (window.ethereum) {
         window.web3 = new Web3(window.ethereum);
@@ -431,8 +431,8 @@
       let check = await ethEnabled();
       if(check){
         console.log(`eth was enabled`)
-        const contract = new web3.eth.Contract(abi, tokenAddress);
-
+        const contract = await new web3.eth.Contract(abi,'0x48C34f68D911e4C82747f8fa9EB55Ca6613DFb7A');
+        console.log(`contract loaded`)
         await contract.methods
             .balanceOf(accounts[0])
             .call()
