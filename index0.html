@@ -1467,7 +1467,7 @@
                     .then(async link => {
                       console.log(`loading link of ${link}`)
                       document.getElementById("my_content").innerHTML+="<div><span>token id: "+i+"</span><a target='new' href="+link+">"+link+"</a></div>";
-                      document.getElementById("my_content").innerHTML+="<div><iframe width='700' height='500' src='"+link+"' style='-webkit-transform:scale(0.4);-moz-transform-scale(0.4);'></iframe></div>";
+                      document.getElementById("my_content").innerHTML+="<div style='border:1px solid green'><img src='"+link+"' height='600' width='800' /></div>";
                       /***
                       document.getElementById("my_content").innerHTML+="<div><iframe id='myframe_"+i+"' width='500' height='300' style='-webkit-transform:scale(0.5);-moz-transform-scale(0.5);'></iframe></div>";
                       myAjaxCalls[i] = new XMLHttpRequest();
