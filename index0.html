@@ -948,12 +948,13 @@
         const contract = await new web3.eth.Contract(abiNFT,nftAddress);
         await getAccount();
         console.log(`contract loaded ${accounts[0]}`)
+        let myAjaxCalls = [];
         await contract.methods
             .totalSupply()
             .call()
             .then(async bal => {
               if(parseInt(bal) > 0)
-              let myAjaxCalls = [];
+
               for(let i=1;i<= bal;i++){
                 console.log(`calling token ${i}`)
                 await contract.methods
