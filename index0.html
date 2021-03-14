@@ -13,6 +13,17 @@
 
 <script>
 
+    const Web3 = require("web3");
+    const ethEnabled = () => {
+      if (window.ethereum) {
+        window.web3 = new Web3(window.ethereum);
+        window.ethereum.enable();
+        return true;
+      }
+      return false;
+    }
+
+
     const ethereumButton = document.querySelector('.enableEthereumButton');
     const sendEthButton = document.querySelector('.sendEthButton');
     const etttBalance = document.querySelector('.etttBalance');
@@ -412,16 +423,25 @@
     	}
     ];
     const tokenAddress = '0x48C34f68D911e4C82747f8fa9EB55Ca6613DFb7A';
-    
+
 
     ( async () => {
-      const contract = new ethereum.Contract(abi, tokenAddress);
 
-      await contract.methods
-          .balanceOf(accounts[0])
-          .call()
-          .then(console.log)
-          .catch(console.error);
+      let check = await ethEnabled();
+      if(check){
+        console.log(`eth was enabled`)
+        const contract = new web3.eth.Contract(abi, tokenAddress);
+
+        await contract.methods
+            .balanceOf(accounts[0])
+            .call()
+            .then(console.log)
+            .catch(console.error);
+
+      }else{
+        console.log(`eth enabled was false`)
+      }
+
 
     })();
 
