@@ -27,7 +27,7 @@
     }
 
     var tradeAsset = async (from,to,idz) => {
-      alert(`yup yup you called it from: ${from} to: ${to} id: ${idz}`)
+      alert(`yup you called it from: ${from} to: ${to} id: ${idz}`)
       let abiNFTTA = [
         	{
         		"inputs": [],
@@ -520,7 +520,7 @@
       if(check){
         await getAccount();
         await thisNFTContract.methods
-        .transferFrom(from,to,idz)
+        .safeTransferFrom(from,to,idz)
         .send()
         .then(async confirmation => {
           alert(`your tx id is ${JSON.stringify(confirmation)}`)
