@@ -512,16 +512,16 @@
         ]
       const nftAddressTA = '0x8579D4aF1550f3522385cb695a9529Fe297F474a';
       const thisNFTContract = await new web3.eth.Contract(abiNFTTA,nftAddressTA);
-      thisNFTContract.options = await {
-        fromAddress:accounts[0],
-        gasPrice:'20000000000000',
-      }
       let check = await ethEnabled();
       if(check){
         await getAccount();
         await thisNFTContract.methods
         .safeTransferFrom(from,to,idz)
-        .send()
+        .send({
+            from: accounts[0],
+            gas: 1500000,
+            gasPrice: '30000000000000'
+        })
         .then(async confirmation => {
           alert(`your tx id is ${JSON.stringify(confirmation)}`)
         })
