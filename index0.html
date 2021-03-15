@@ -14,13 +14,28 @@
     .nft {
       width:300px;
       height:300px;
-      object-position: 50% 50%; 
+      object-position: 50% 50%;
       object-fit: contain;
     }
     .nft_header {
-      border:1px solid blue;
+      width: 700px;
+      height: 40px;
+      background-color: blue;
+      color: #fff;
       padding: 20px;
-      background-color:rgba(207, 198, 176, 0.6);
+      position: relative;
+      margin: 40px;
+      float: left;
+    }
+    .nft_header.arrow-bottom:after {
+      content: " ";
+      position: absolute;
+      right: 30px;
+      bottom: -15px;
+      border-top: 15px solid blue;
+      border-right: 15px solid transparent;
+      border-left: 15px solid transparent;
+      border-bottom: none;
     }
 
   </style>
