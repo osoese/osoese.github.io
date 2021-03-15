@@ -1472,44 +1472,47 @@
               if(parseInt(bal) > 0)
 
               for(let i=1;i<= bal;i++){
-                console.log(`calling token ${i}`)
-                await contract.methods
-                    .tokenURI(i)
-                    .call()
-                    .then(async link => {
-                      console.log(`loading link of ${link}`)
-                      document.getElementById("my_content").innerHTML+="<div><span>token id: "+i+"</span><a target='new' href="+link+">"+link+"</a></div>";
-                      document.getElementById("my_content").innerHTML+="<div class='card'><img src='"+link+"' width='600' /></div>";
-                      /***
-                      document.getElementById("my_content").innerHTML+="<div><iframe id='myframe_"+i+"' width='500' height='300' style='-webkit-transform:scale(0.5);-moz-transform-scale(0.5);'></iframe></div>";
-                      myAjaxCalls[i] = new XMLHttpRequest();
-                      myAjaxCalls[i].onreadystatechange = function() {
-                          if (myAjaxCalls[i].readyState !== 4) return;
-                          if (myAjaxCalls[i].status === 200) {
+                if(![1,2,3,4].find(parseInt(i))){
+                  console.log(`calling token ${i}`)
+                  await contract.methods
+                      .tokenURI(i)
+                      .call()
+                      .then(async link => {
+                        console.log(`loading link of ${link}`)
+                        document.getElementById("my_content").innerHTML+="<div><span>token id: "+i+"</span><a target='new' href="+link+">"+link+"</a></div>";
+                        document.getElementById("my_content").innerHTML+="<div class='card'><img src='"+link+"' width='600' /></div>";
+                        /***
+                        document.getElementById("my_content").innerHTML+="<div><iframe id='myframe_"+i+"' width='500' height='300' style='-webkit-transform:scale(0.5);-moz-transform-scale(0.5);'></iframe></div>";
+                        myAjaxCalls[i] = new XMLHttpRequest();
+                        myAjaxCalls[i].onreadystatechange = function() {
+                            if (myAjaxCalls[i].readyState !== 4) return;
+                            if (myAjaxCalls[i].status === 200) {
 
-                              var doc = document.getElementById(`myframe_${i}`).contentWindow.document;
-                              doc.open();
-                              doc.write(xhr.responseText);
-                              doc.close();
-                          }
-                      }
-                      myAjaxCalls[i].open('GET', `${link}`, true);
-                      myAjaxCalls[i].send(null);
-                      ***/
-                    })
-                    .catch(console.error);
-                await contract.methods
-                    .ownerOf(i)
-                    .call()
-                    .then(async addrOwner => {
-                      console.log(`owner of ${i} is ${addrOwner} and you are ${accounts[0]}`)
-                      if(addrOwner.toLowerCase() == accounts[0].toLowerCase()){
-                        document.getElementById("my_content").innerHTML+="<div><input id='send_asset_"+i+"' type='text' /></div>";
-                        document.getElementById("my_content").innerHTML+="<div><button onClick='tradeAsset(\""+accounts[0]+"\",document.getElementById(\"send_asset_"+i+"\").value,\""+i+"\")' class='tradeAsset_"+i+" btn'>TRADE ASSET</button></div>";
-                        mySellButtons[i] = await document.querySelector(`tradeAsset_${i}`);
-                      }
-                    })
-                    .catch(console.error);
+                                var doc = document.getElementById(`myframe_${i}`).contentWindow.document;
+                                doc.open();
+                                doc.write(xhr.responseText);
+                                doc.close();
+                            }
+                        }
+                        myAjaxCalls[i].open('GET', `${link}`, true);
+                        myAjaxCalls[i].send(null);
+                        ***/
+                      })
+                      .catch(console.error);
+                  await contract.methods
+                      .ownerOf(i)
+                      .call()
+                      .then(async addrOwner => {
+                        console.log(`owner of ${i} is ${addrOwner} and you are ${accounts[0]}`)
+                        if(addrOwner.toLowerCase() == accounts[0].toLowerCase()){
+                          document.getElementById("my_content").innerHTML+="<div><input id='send_asset_"+i+"' type='text' /></div>";
+                          document.getElementById("my_content").innerHTML+="<div><button onClick='tradeAsset(\""+accounts[0]+"\",document.getElementById(\"send_asset_"+i+"\").value,\""+i+"\")' class='tradeAsset_"+i+" btn'>TRADE ASSET</button></div>";
+                          mySellButtons[i] = await document.querySelector(`tradeAsset_${i}`);
+                        }
+                      })
+                      .catch(console.error);
+                }
+
 
               }
               console.log(parseInt(bal))
