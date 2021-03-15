@@ -40,6 +40,11 @@
       border-left: 15px solid transparent;
       border-bottom: none;
     }
+    .tid {
+      background-color: black;
+      color:yellow;
+      font-weight: bold;
+    }
 
   </style>
 
@@ -1509,7 +1514,7 @@
                       .call()
                       .then(async link => {
                         console.log(`loading link of ${link}`)
-                        document.getElementById("my_content").innerHTML+="<div class='nft_header arrow-bottom'><span>token id: "+i+"</span><a target='new' href="+link+">"+link+"</a></div>";
+                        document.getElementById("my_content").innerHTML+="<div class='nft_header arrow-bottom'><span class='tid'>"+i+"</span><a target='new' href="+link+">"+link+"</a></div>";
                         document.getElementById("my_content").innerHTML+="<div class='card'><img class='nft' src='"+link+"' /></div>";
                         /***
                         document.getElementById("my_content").innerHTML+="<div><iframe id='myframe_"+i+"' width='500' height='300' style='-webkit-transform:scale(0.5);-moz-transform-scale(0.5);'></iframe></div>";
