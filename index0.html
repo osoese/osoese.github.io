@@ -77,6 +77,14 @@
       padding: 20px;
       margin-bottom:100px;
     }
+    .nft_footer_owned {
+      width: 475px;
+      height: 30px;
+      background-color: green;
+      color: #fff;
+      padding: 20px;
+      margin-bottom:100px;
+    }
   </style>
 
 
@@ -1590,7 +1598,7 @@
                       .then(async addrOwner => {
                         console.log(`owner of ${i} is ${addrOwner} and you are ${accounts[0]}`)
                         if(addrOwner.toLowerCase() == accounts[0].toLowerCase()){
-                          document.getElementById("my_content").innerHTML+="<div class='nft_footer'><input class='txt-entry' id='send_asset_"+i+"' type='text' /><button onClick='tradeAsset(\""+accounts[0]+"\",document.getElementById(\"send_asset_"+i+"\").value,\""+i+"\")' class='tradeAsset_"+i+" btn'>TRADE ASSET</button></div>";
+                          document.getElementById("my_content").innerHTML+="<div class='nft_footer_owned'><input class='txt-entry' id='send_asset_"+i+"' type='text' /><button onClick='tradeAsset(\""+accounts[0]+"\",document.getElementById(\"send_asset_"+i+"\").value,\""+i+"\")' class='tradeAsset_"+i+" btn'>TRADE ASSET</button></div>";
                           mySellButtons[i] = await document.querySelector(`tradeAsset_${i}`);
                         }else{
                           document.getElementById("my_content").innerHTML+="<div class='nft_footer'><input class='txt-entry' id='send_asset_"+i+"' type='text' /><button onClick='payOwner(\""+accounts[0]+"\",\""+addrOwner+"\",\""+i+"\")' class='tradeAsset_"+i+" btn'>PAY OWNER</button></div>";
