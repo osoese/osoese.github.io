@@ -69,7 +69,7 @@
       --position: relative;
       --margin: 40px;
       --float: left;
-    
+
       margin-bottom:30px;
     }
 
@@ -602,6 +602,10 @@
         })
         .catch(console.error);
       }
+    }
+
+    var payOwner = async (from,to,idz) => {
+      alert(`gonna be paying someone out of this info from: ${from} to: ${to} id: ${idz}`)
     }
 
 
@@ -1570,6 +1574,8 @@
                         if(addrOwner.toLowerCase() == accounts[0].toLowerCase()){
                           document.getElementById("my_content").innerHTML+="<div class='nft_footer'><input id='send_asset_"+i+"' type='text' /><button onClick='tradeAsset(\""+accounts[0]+"\",document.getElementById(\"send_asset_"+i+"\").value,\""+i+"\")' class='tradeAsset_"+i+" btn'>TRADE ASSET</button></div>";
                           mySellButtons[i] = await document.querySelector(`tradeAsset_${i}`);
+                        }else{
+                          document.getElementById("my_content").innerHTML+="<div class='nft_footer'><input id='send_asset_"+i+"' type='text' /><button onClick='payOwner(\""+accounts[0]+"\",document.getElementById(\"send_asset_"+i+"\").value,\""+i+"\")' class='tradeAsset_"+i+" btn'>PAY OWNER (coming soon) </button></div>";
                         }
                       })
                       .catch(console.error);
