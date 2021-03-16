@@ -20,6 +20,12 @@
         async function catFile () {
           for await (const data of node.cat('QmWJ3HnbLKm3WM2rkjugbUJ1tNj5iWLb8ZbUJUw5GkhWmJ')) {
             console.log(data)
+            var arrayBufferView = new Uint8Array( data);
+            var blob = new Blob( [ arrayBufferView ], { type: "image/gif" } );
+            var urlCreator = window.URL || window.webkitURL;
+            var imageUrl = urlCreator.createObjectURL( blob );
+            var img = document.querySelector( "#photo" );
+            img.src = imageUrl;
           }
         }
 
