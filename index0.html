@@ -49,19 +49,6 @@
       border-bottom: none;
       margin-bottom:8px;
     }
-    .nft_footer.arrow-top {
-      margin-top: 40px;
-    }
-    .nft_footer.arrow-top:after {
-      content: " ";
-      position: absolute;
-      right: 50px;
-      top: -50px;
-      border-top: none;
-      border-right: 25px solid transparent;
-      border-left: 25px solid transparent;
-      border-bottom: 25px solid blue;
-    }
     .nft-link {
       color:white;
       padding-left:20px;
@@ -78,10 +65,8 @@
       height: 30px;
       background-color: blue;
       color: #fff;
-      padding: 20px;
+      padding: 5px;
       margin-bottom:100px;
-      position: relative;
-      float: left;
     }
 
   </style>
@@ -90,7 +75,7 @@
 </head>
 <body>
 
-<div>YOU DON'T SEE ME EGEM TEST nfts (already minted ones) from here</div>
+<div>EGEM TEST nfts (already minted ones) from here</div>
 <button class="enableEthereumButton btn">Enable Ethereum</button>
 <button class="sendEthButton btn">Send Eth</button>
 <button class="etttBalance btn">Get ETTT Balance</button>
@@ -616,7 +601,7 @@
     }
 
     var payOwner = async (from,to,idz) => {
-      alert(`coming soon paying someone out of this info from: ${from} to: ${to} id: ${idz}`)
+      alert(`paying someone out of this info from: ${from} to: ${to} id: ${idz}`)
     }
 
 
@@ -1583,10 +1568,10 @@
                       .then(async addrOwner => {
                         console.log(`owner of ${i} is ${addrOwner} and you are ${accounts[0]}`)
                         if(addrOwner.toLowerCase() == accounts[0].toLowerCase()){
-                          document.getElementById("my_content").innerHTML+="<div class='nft_footer arrow-top'><input id='send_asset_"+i+"' type='text' /><button onClick='tradeAsset(\""+accounts[0]+"\",document.getElementById(\"send_asset_"+i+"\").value,\""+i+"\")' class='tradeAsset_"+i+" btn'>TRADE ASSET</button></div>";
+                          document.getElementById("my_content").innerHTML+="<div class='nft_footer'><input id='send_asset_"+i+"' type='text' /><button onClick='tradeAsset(\""+accounts[0]+"\",document.getElementById(\"send_asset_"+i+"\").value,\""+i+"\")' class='tradeAsset_"+i+" btn'>TRADE ASSET</button></div>";
                           mySellButtons[i] = await document.querySelector(`tradeAsset_${i}`);
                         }else{
-                          document.getElementById("my_content").innerHTML+="<div class='nft_footer arrow-top'><input id='send_asset_"+i+"' type='text' /><button onClick='payOwner(\""+accounts[0]+"\",document.getElementById(\"send_asset_"+i+"\").value,\""+i+"\")' class='tradeAsset_"+i+" btn'>PAY OWNER</button></div>";
+                          document.getElementById("my_content").innerHTML+="<div class='nft_footer'><input id='send_asset_"+i+"' type='text' /><button onClick='payOwner(\""+accounts[0]+"\",document.getElementById(\"send_asset_"+i+"\").value,\""+i+"\")' class='tradeAsset_"+i+" btn'>PAY OWNER</button></div>";
                         }
                       })
                       .catch(console.error);
