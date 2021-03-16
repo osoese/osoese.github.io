@@ -14,6 +14,9 @@
       document.getElementById('status').innerHTML = `Node status: ${status}`
 
       if(status == 'online'){
+
+        console.log(`online and now calling a file... (the spnner ...)`)
+
         async function catFile () {
           for await (const data of node.cat('QmWJ3HnbLKm3WM2rkjugbUJ1tNj5iWLb8ZbUJUw5GkhWmJ')) {
             console.log(data.toString())
