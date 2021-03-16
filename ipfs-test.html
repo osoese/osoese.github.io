@@ -13,19 +13,23 @@
       console.log(`Node status: ${status}`)
       document.getElementById('status').innerHTML = `Node status: ${status}`
 
+      if(status == 'online'){
+        async function catFile () {
+          for await (const data of node.cat('QmWJ3HnbLKm3WM2rkjugbUJ1tNj5iWLb8ZbUJUw5GkhWmJ')) {
+            console.log(data.toString())
+          }
+        }
+
+        catFile()
+      }
+
       // You can write more code here to use it. Use methods like
       // node.add, node.get. See the API docs here:
       // https://github.com/ipfs/js-ipfs/tree/master/packages/interface-ipfs-core
     })
 
-    async function catFile () {
-      for await (const data of node.cat('QmWJ3HnbLKm3WM2rkjugbUJ1tNj5iWLb8ZbUJUw5GkhWmJ')) {
-        console.log(data.toString())
-      }
-    }
 
-    catFile()
-    
+
   </script>
 </head>
 <body>
