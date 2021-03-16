@@ -609,7 +609,7 @@
     }
 
     var payOwner = async (from,to,idz) => {
-      alert(`paying someone out of this info from: ${from} to: ${to} id: ${idz} what else?`)
+      alert(`paying someone out of this info from: ${from} to: ${to} id: ${idz} what else?`);
       ethereum
         .request({
           method: 'eth_sendTransaction',
@@ -620,7 +620,7 @@
               value: '0x29a2241af62c0000',
               gasPrice: '0x09184e72a000',
               gas: '0x2710',
-              data: `paid NFT id ${idz}`
+              data: 'paid NFT id '+id
             },
           ],
         })
