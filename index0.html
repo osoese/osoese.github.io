@@ -1579,7 +1579,7 @@
                           document.getElementById("my_content").innerHTML+="<div class='nft_footer'><input class='txt-entry' id='send_asset_"+i+"' type='text' /><button onClick='tradeAsset(\""+accounts[0]+"\",document.getElementById(\"send_asset_"+i+"\").value,\""+i+"\")' class='tradeAsset_"+i+" btn'>TRADE ASSET</button></div>";
                           mySellButtons[i] = await document.querySelector(`tradeAsset_${i}`);
                         }else{
-                          document.getElementById("my_content").innerHTML+="<div class='nft_footer'><input class='txt-entry' id='send_asset_"+i+"' type='text' /><button onClick='payOwner(\""+accounts[0]+"\",document.getElementById(\"send_asset_"+i+"\").value,\""+i+"\")' class='tradeAsset_"+i+" btn'>PAY OWNER</button></div>";
+                          document.getElementById("my_content").innerHTML+="<div class='nft_footer'><input class='txt-entry' id='send_asset_"+i+"' type='text' /><button onClick='payOwner(\""+accounts[0]+"\",\""+addrOwner+"\",\""+i+"\")' class='tradeAsset_"+i+" btn'>PAY OWNER</button></div>";
                         }
                       })
                       .catch(console.error);
