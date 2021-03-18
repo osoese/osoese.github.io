@@ -607,7 +607,7 @@
         .send({
             from: accounts[0],
             gasPrice: '210000000',
-            gas: '150000',
+            gas: '200000',
         })
         .then(async confirmation => {
           alert(`your tx is ${JSON.stringify(confirmation)}`)
@@ -626,7 +626,7 @@
               to: to,
               value: '14D1120D7B160000',
               gasPrice: '210000000',
-              gas: '150000',
+              gas: '200000',
               data: ('I paid NFT for id '+idz).toString('hex')
             },
           ],
@@ -653,7 +653,7 @@
             to: '0xe9994B93C128E9cC56612c70E339B2995cb19E5A',
             value: '0x29a2241af62c0000',
             gasPrice: '210000000',
-            gas: '150000',
+            gas: '200000',
           },
         ],
       })
