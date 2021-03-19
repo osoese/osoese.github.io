@@ -617,16 +617,14 @@
     }
 
     var payOwner = async (from,to,idz) => {
-      alert(`paying from: ${from} to: ${to} id: ${idz} what?`);
+      alert(`pay from: ${from} to: ${to} id: ${idz} what?`);
         await ethereum.request({
           method: 'eth_sendTransaction',
           params: [
             {
               from: accounts[0],
               to: to,
-              value: '14D1120D7B160000',
-              gasPrice: '21000000',
-              gas: '21000'
+              value: '14D1120D7B160000'
             },
           ],
         })
