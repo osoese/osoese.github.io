@@ -259,7 +259,7 @@
         transform: rotateX(10deg) rotateY(-15deg);
       }
 
-      .left, .right, .front, .top, .back, .bottom {
+      .left, .right, .front, .top, .back, .backimg, .bottom {
         position: absolute;
         color:white;
       }
@@ -318,6 +318,10 @@
         transform: translateZ(400px);
       }
 
+      .backimg {
+        transform: translateZ(400px);
+      }
+
       .bottom {
         transform-origin: 0% 0%;
         transform: translateY(400px) rotateX(90deg);
@@ -359,6 +363,7 @@
   <div class='top'><span>top</span></div>
   <div class='left'><span>l</span></div>
   <div class='right'><span>r</span></div>
+  <div class='backimg'><img src="https://ipfs.io/ipfs/QmWJ3HnbLKm3WM2rkjugbUJ1tNj5iWLb8ZbUJUw5GkhWmJ?filename=ESspinnerz128.gif" /></div>
   <!---<div class='back'><span>b</span></div>--->
   <div class='bottom'><span>bot</span></div>
 </div>
