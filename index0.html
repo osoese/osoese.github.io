@@ -196,6 +196,22 @@
       	font-weight: 100;
       }
 
+      .opt-button {
+        /* background styles */
+      	position: relative;
+      	display: inline-block;
+      	padding: 15px 25px;
+      	background-color: green; /*for compatibility with older browsers*/
+      	background-image: linear-gradient(#5832a8,#9a32a8);
+
+      	/* text styles */
+      	text-decoration: none;
+      	color: #fff;
+      	font-size: 25px;
+      	font-family: sans-serif;
+      	font-weight: 100;
+      }
+
   </style>
 
 
@@ -210,10 +226,10 @@
 
 <div class="scene">
   <div class="carousel">
-    <div class="carousel__cell"><button class="enableEthereumButton btn">Enable Ethereum</button></div>
-    <div class="carousel__cell"><button class="sendEthButton btn">Send Eth</button></div>
-    <div class="carousel__cell"><button class="etttBalance btn">Get ETTT Balance</button></div>
-    <div class="carousel__cell"><button class="nftBalance btn">SHOW MY NFTs</button></div>
+    <div class="carousel__cell"><button class="enableEthereumButton btn opt-button">Enable Ethereum</button></div>
+    <div class="carousel__cell"><button class="sendEthButton btn opt-button">Send Eth</button></div>
+    <div class="carousel__cell"><button class="etttBalance btn opt-button">Get ETTT Balance</button></div>
+    <div class="carousel__cell"><button class="nftBalance btn opt-button">SHOW MY NFTs</button></div>
     <div class="carousel__cell">5</div>
     <div class="carousel__cell">6</div>
     <div class="carousel__cell">7</div>
