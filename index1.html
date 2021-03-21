@@ -1,12 +1,12 @@
 <html>
 
 <head>
-  <title> THIS iS NFT Number <span class="nid">0</span> </title>
+  <title> THIS iS NFT Number <span id="nid">0</span> </title>
   <script>
     const params = new URLSearchParams(document.location.search);
     const nftId = params.get("nftid");
     console.info(nftId); //show 1
-    document.querySelector('.nid').innerHTML = `${nftId}`
+    document.getElementById('nid').innerHTML = `${nftId}`
   </script>
   <style>
 
