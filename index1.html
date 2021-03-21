@@ -1889,7 +1889,7 @@
               if(parseInt(bal) > 0)
 
               for(let i=1;i<= bal;i++){
-                if(![1,2,3,4,7,8,12].includes(parseInt(i))){//removing website dead link NFTs
+                if([parseInt(nftId)].includes(parseInt(i))){//removing website dead link NFTs
                   console.log(`calling token ${i}`)
                   await contract.methods
                       .tokenURI(i)
