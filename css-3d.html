@@ -55,7 +55,7 @@
         <p>
           <label>
             perspective-origin x
-            <input class="origin-x-range" type="range" min="0" max="100" value="50" data-units="%" />
+            <input class="origin-x-range" type="range" min="0" max="80" value="50" data-units="%" />
           </label>
         </p>
         <p>
@@ -101,8 +101,8 @@
         myDeg+=1;
         myDeg2+=1;
 
-        document.querySelector(`.card`).style.transform = `perspective(340px) rotateY(${myDeg}deg)`;
-        document.querySelector(`.card_back`).style.transform = `perspective(340px) rotateY(${myDeg2}deg)`;
+        document.querySelector(`.card`).style.transform = `perspective(600px) rotateY(${myDeg}deg)`;
+        document.querySelector(`.card_back`).style.transform = `perspective(600px) rotateY(${myDeg2}deg)`;
         console.log(`called spin ${myDeg}`)
 
         if(rotations > 0){
