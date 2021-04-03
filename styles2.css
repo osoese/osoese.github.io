@@ -174,10 +174,10 @@
   box-shadow:
     0 0 400px rgb(255, 255, 255, 0.3),            /* outer white */
     -5px 0 200px rgb(255, 0, 255, 0.6),        /* outer left magenta */
-    5px 0 200px rgb(0, 255, 255, 0.6); 
+    5px 0 200px rgb(0, 255, 255, 0.6);
 }
 
-.cube__face--front  { background: hsla(  0, 100%, 50%, 0.7); }
+.cube__face--front  { background: hsla(  0, 100%, 50%, 0.6); }
 .cube__face--right  { background: hsla( 60, 100%, 50%, 0.7); }
 .cube__face--back   { background: hsla(120, 100%, 50%, 0.7); }
 .cube__face--left   { background: hsla(180, 100%, 50%, 0.7); }
