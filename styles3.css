@@ -13,7 +13,7 @@
   width: 340px;
   border: 5px;
   border: 5px inset #a6ff4d;
-  border-radius: 9px;
+  border-radius: 15px;
   transform: perspective(340px) rotateY(80deg);
   -webkit-backface-visibility: visible;
   box-shadow:
@@ -31,7 +31,7 @@
   width: 340px;
   border: 5px;
   border: 5px inset #a6ff4d;
-  border-radius: 9px;
+  border-radius: 15px;
   transform:  translateZ(100px);
   -webkit-backface-visibility: hidden;
   box-shadow:
@@ -142,6 +142,7 @@
   width: 250px;
   height: 250px;
   border: 1px solid #CCC;
+  border-radius: 10px;
   margin: 10px;
   perspective: 400px;
   padding:30px;
