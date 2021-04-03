@@ -147,7 +147,7 @@
   padding:30px;
   background: url(images/background.png) repeat 5% 5%;
   -moz-animation: bgimage 3s linear 0s infinite;
-    -webkit-animation: bgimage 4s linear 0s infinite;
+    -webkit-animation: bgimage 5s linear 0s infinite;
     animation: bgimage 3s linear 0s infinite;
 }
 
