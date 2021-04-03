@@ -1,0 +1,262 @@
+*
+{
+  margin:0;
+  padding:0;
+}
+.card{
+  position: absolute;;
+  top:100;
+  left:100;
+  padding:10px;
+  background-color: #2e3150;
+  height:340px;
+  width: 340px;
+  border: 5px;
+  border: 5px inset #a6ff4d;
+  border-radius: 9px;
+  transform: perspective(340px) rotateY(80deg);
+  -webkit-backface-visibility: visible;
+  box-shadow:
+    0 0 400px rgb(255, 255, 255, 0.3),            /* outer white */
+    -5px 0 200px rgb(255, 0, 255, 0.6),        /* outer left magenta */
+    5px 0 200px rgb(0, 255, 255, 0.6);         /* outer right cyan */
+}
+.card_back{
+  position: absolute;;
+  top:100;
+  left:100;
+  padding:10px;
+  background-color: #2e3150;
+  height:340px;
+  width: 340px;
+  border: 5px;
+  border: 5px inset #a6ff4d;
+  border-radius: 9px;
+  transform:  translateZ(100px);
+  -webkit-backface-visibility: hidden;
+  box-shadow:
+    0 0 300px rgb(255, 255, 255, 0.2),            /* outer white */
+    -5px 0 200px rgb(255, 0, 255, 0.4),        /* outer left magenta */
+    5px 0 200px rgb(0, 255, 255, 0.4);         /* outer right cyan */
+}
+.window
+{
+  top: 17;
+  left: 17;
+  position: relative;
+  width:300px;
+  height:300px;
+  border: 3px outset #18C1D2;
+  border-radius: 9px;
+  overflow: hidden;
+  background-color: #330033;
+}
+.pattern
+{
+  position: relative;
+  transform-style: preserve-3d;
+  perspective: 600px;
+}
+.pattern .face
+{
+  position: relative;
+  width: 100%;
+  height: 33vh;
+  background: url(140x140.png);
+  background-size: 50px 50px;
+}
+.pattern .face.face2
+{
+  height: 60vh;
+  z-index: -1;
+  transform-origin: top;
+  transform: rotateX(65deg);
+}
+.pattern .face1:before
+{
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 200px;
+  background: linear-gradient(0deg,rgba(0,0,0,0.5),transparent);
+}
+.patternTwo
+{
+  content: '';
+  position:absolute;
+  top:70;
+  left:40;
+  z-index: :10;
+}
+.patternThree
+{
+  content: '';
+  position:absolute;
+  top:30;
+  left:150;
+  z-index: :20;
+}
+#shadow {
+  --border: 1px solid blue;
+  position: relative;
+  font-size: 200px;
+  font-weight: bold;
+  text-align: center;
+  perspective: 200px;
+  perspective-origin: 70% 200%;
+  display: inline-block;
+}
+#shadow::after {
+  content: '<>>>>'
+  outline: 1px solid red;
+  position: absolute;
+  top: 20; right: 20; bottom: 20; left: 20;
+  transform: scaleY(0.3) rotateX(-15deg);
+  transform-origin: 70% 200%;
+  opacity: .7;
+}
+
+.control_panel{
+    padding: 30px;
+}
+.control_panel h2{
+  font-size:20px;
+  font-weight: :bold;
+}
+
+.scene_container {
+  position: absolute;
+  left: 600px;
+  top: 100px;
+  height: 600px;
+  width: 500px;
+  color:cyan;
+  background-color: #283242;
+  border: 0px solid #283242;
+  border-radius: 12px;
+}
+
+.scene {
+  width: 250px;
+  height: 250px;
+  border: 1px solid #CCC;
+  margin: 10px;
+  perspective: 400px;
+  padding:30px;
+  background: url(images/background.png) repeat 5% 5%;
+  -moz-animation: bgimage 3s linear 0s infinite;
+    -webkit-animation: bgimage 4s linear 0s infinite;
+    animation: bgimage 3s linear 0s infinite;
+}
+
+.cube {
+  width: 200px;
+  height: 200px;
+  position: relative;
+  transform-style: preserve-3d;
+  transform: translateZ(-100px);
+}
+
+.cube.is-spinning {
+  animation: spinCube 8s infinite ease-in-out;
+}
+
+@keyframes spinCube {
+    0% { transform: translateZ(-100px) rotateX(  0deg) rotateY(  0deg); }
+  100% { transform: translateZ(-100px) rotateX(360deg) rotateY(360deg); }
+}
+
+.cube__face {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border: 2px solid cyan;
+  border-radius: 9px;
+  line-height: 200px;
+  font-size: 40px;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  box-shadow:
+    0 0 100px rgb(255, 255, 255, 0.3),            /* outer white */
+    -5px 0 50px rgb(255, 0, 255, 0.6),        /* outer left magenta */
+    5px 0 50px rgb(0, 255, 255, 0.6);
+}
+
+.cube__face--front  { background: hsla(  0, 100%, 50%, 0.7); }
+.cube__face--right  { background: hsla( 60, 100%, 50%, 0.7); }
+.cube__face--back   { background: hsla(120, 100%, 50%, 0.7); }
+.cube__face--left   { background: hsla(180, 100%, 50%, 0.7); }
+.cube__face--top    { background: hsla(240, 100%, 50%, 0.7); }
+.cube__face--bottom { background: hsla(300, 100%, 50%, 0.7); }
+
+.cube__face--front  { transform: rotateY(  0deg) translateZ(100px); }
+.cube__face--right  { transform: rotateY( 90deg) translateZ(100px); }
+.cube__face--back   { transform: rotateY(180deg) translateZ(100px); }
+.cube__face--left   { transform: rotateY(-90deg) translateZ(100px); }
+.cube__face--top    { transform: rotateX( 90deg) translateZ(100px); }
+.cube__face--bottom { transform: rotateX(-90deg) translateZ(100px); }
+
+.cube.is-backface-hidden .cube__face {
+  backface-visibility: hidden;
+}
+
+#midground {
+	background: url(images/midground.png) repeat 20% 20%;
+	position: absolute;
+	top: 0; left: 0; right: 0; bottom: 0;
+	z-index: 997;
+  -moz-animation: midground 2s linear 0s infinite;
+    -webkit-animation: midground 2s linear 0s infinite;
+    animation: midground 2s linear 0s infinite;
+}
+#foreground {
+	background: url(images/foreground.png) repeat 90% 110%;
+	position: absolute;
+	top: 0; left: 0; right: 0; bottom: 0;
+	z-index: 998;
+  -moz-animation: foreground 3s linear 0s infinite;
+    -webkit-animation: foreground 3s linear 0s infinite;
+    animation: foreground 3s linear 0s infinite;
+}
+
+@-moz-keyframes midground {
+    from { background-position: 200% 0, 0 0; }
+    to  { background-position: -100% 0, 0 0; }
+}
+@-webkit-keyframes midground {
+    from { background-position: 200% 0, 0 0; }
+    to  { background-position: -100% 0, 0 0; }
+}
+@keyframes midground {
+    from { background-position: 200% 0, 0 0; }
+    to  { background-position: -100% 0, 0 0; }
+}
+
+@-moz-keyframes foreground {
+    from { background-position: -200% -100%, 0 0; }
+    to  { background-position: 100% 0, 0 0; }
+}
+@-webkit-keyframes foreground {
+    from { background-position: -200% -100%, 0 0; }
+    to  { background-position: 100% 0, 0 0; }
+}
+@keyframes foreground {
+    from { background-position: -200% -100%, 0 0; }
+    to  { background-position: 100% 0, 0 0; }
+}
+
+@-moz-keyframes bgimage {
+    from { background-position: -200% 100%, 0 0; }
+    to  { background-position: 100% 0, 0 0; }
+}
+@-webkit-keyframes bgimage {
+    from { background-position: -200% 100%, 0 0; }
+    to  { background-position: 100% 0, 0 0; }
+}
+@keyframes bgimage {
+    from { background-position: -200% 100%, 0 0; }
+    to  { background-position: 100% 0, 0 0; }
+}
