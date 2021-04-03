@@ -3,12 +3,13 @@
   margin:0;
   padding:0;
 }
+
 .card{
   position: absolute;;
   top:100;
   left:100;
   padding:10px;
-  background-color: #2e3150;
+  background-color: #055933;
   height:340px;
   width: 340px;
   border: 5px;
@@ -21,12 +22,12 @@
     -5px 0 200px rgb(255, 0, 255, 0.6),        /* outer left magenta */
     5px 0 200px rgb(0, 255, 255, 0.6);         /* outer right cyan */
 }
+
 .card_back{
   position: absolute;;
   top:100;
   left:100;
   padding:10px;
-  color:cyan;
   background-color: #2e3150;
   height:340px;
   width: 340px;
@@ -40,6 +41,13 @@
     -5px 0 200px rgb(255, 0, 255, 0.4),        /* outer left magenta */
     5px 0 200px rgb(0, 255, 255, 0.4);         /* outer right cyan */
 }
+
+.signature{
+  padding:10px;
+  margin:20px;
+  color: cyan;
+}
+
 .window
 {
   top: 17;
@@ -140,10 +148,14 @@
 }
 
 .scene {
-  width: 250px;
-  height: 250px;
+  width: 258px;
+  height: 258px;
   border: 1px solid #CCC;
   border-radius: 10px;
+  box-shadow:
+    0 0 40px rgb(202, 250, 217, 0.3),            /* outer white */
+    -5px 0 20px rgb(252, 78, 180, 0.6),        /* outer left magenta */
+    5px 0 20px rgb(0, 255, 255, 0.6);
   margin: 10px;
   perspective: 400px;
   padding:30px;
