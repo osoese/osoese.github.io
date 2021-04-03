@@ -60,7 +60,7 @@
         <p>
           <label>
             Spin cube
-            <input class="spin-cube-checkbox" type="checkbox" />
+            <input class="spin-cube-checkbox" type="checkbox" checked />
           </label>
         </p>
         <p>
@@ -112,7 +112,7 @@
         rotations = 3;
         myCryptoCardSpin();
       };
-      spinCardCheckbox.onchange();
+
 
 
       /******** crypto care spin *********/
@@ -197,7 +197,8 @@
         spinCubeCheckbox.onchange = function() {
           cube.classList.toggle( 'is-spinning', spinCubeCheckbox.checked );
         };
-        spinCubeCheckbox.onchange();
+
+
 
         // backface visibility
         var backfaceCheckbox = document.querySelector('.backface-checkbox');
@@ -205,6 +206,12 @@
           console.log(`checked`)
           cube.classList.toggle( 'is-backface-hidden', !backfaceCheckbox.checked );
         };
+
+        console.log(`i think its triggered here`)
+        spinCardCheckbox.onchange();
+        console.log(`but is this ever fired`)
+        spinCubeCheckbox.onchange();
+
     </script>
 
 </html>
