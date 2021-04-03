@@ -42,6 +42,11 @@
     5px 0 200px rgb(0, 255, 255, 0.4);         /* outer right cyan */
 }
 
+.imprinted{
+  position:relative;
+  top:60px;
+}
+
 .signature{
   padding:10px;
   margin:20px;
@@ -199,10 +204,22 @@
     5px 0 50px rgb(0, 255, 255, 0.6);
 }
 
-.cube__face--front  { background: hsla(  0, 100%, 50%, 0.7); }
-.cube__face--right  { background: hsla( 60, 100%, 50%, 0.7); }
-.cube__face--back   { background: hsla(120, 100%, 50%, 0.7); }
-.cube__face--left   { background: hsla(180, 100%, 50%, 0.7); }
+.cube__face--front  {
+  background: url(img/140x140.png) no-repeat, hsla(  0, 100%, 50%, 0.7);
+  background-position: center;
+}
+.cube__face--right  {
+  background: url(img/140x140.png) no-repeat, hsla( 60, 100%, 50%, 0.7);
+  background-position: center;
+}
+.cube__face--back   {
+  background: url(img/140x140.png) no-repeat, hsla(120, 100%, 50%, 0.7);
+  background-position: center;
+}
+.cube__face--left   {
+  background: url(img/140x140.png) no-repeat, hsla(180, 100%, 50%, 0.7);
+  background-position: center;
+}
 .cube__face--top    { background: hsla(240, 100%, 50%, 0.7); }
 .cube__face--bottom { background: hsla(300, 100%, 50%, 0.7); }
 
