@@ -1888,7 +1888,7 @@
                       .tokenURI(i)
                       .call()
                       .then(async link => {
-                        ajax({url:`${link}`}, function (code, responseText) {
+                        nanoajax.ajax({url:`${link}`}, function (code, responseText) {
                           console.log(`the uri was even bad`)
                           console.log(code)
                           console.log(responseText)
